@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": 1780752299608,
+    "ad": "Test Kullanıcı",
+    "firma": "Test Firma",
+    "telefon": "05551234567",
+    "email": "test@test.com",
+    "sektor": "Tekstil",
+    "mesaj": "Test",
+    "tarih": "2026-06-06T13:24:59.608Z",
+    "durum": "Yeni"
+  }
+]
