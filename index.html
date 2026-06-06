@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İhracatın Medyası | Şirketinizin Dış Ticaret Departmanı</title>
-  <meta name="description" content="İhracat stratejisi, global pazarlama, müşteri bulma, lojistik ve teşvik danışmanlığını tek çatı altında yönetiyoruz. Ajans değil — şirketinizin dış ticaret departmanı." />
+  <title>İhracatın Medyası | AI ile Global Büyüme</title>
+  <meta name="description" content="Yapay zeka destekli alıcı bulma, otomatik takip ve uçtan uca ihracat operasyonu. Şirketinizin 7/24 çalışan global satış sistemi." />
   <meta name="keywords" content="ihracat danışmanlığı, ihracat departmanı, global pazarlama, devlet teşvikleri, eximbank danışmanlığı, distribütör bulma, müşteri bulma, dış ticaret" />
   <meta property="og:title" content="İhracatın Medyası | Şirketinizin Dış Ticaret Departmanı" />
   <meta property="og:description" content="Türkiye'den dünyaya açılmak isteyen firmalara ihracatın tüm süreçlerinde ortaklık ediyoruz. Ajans değil, departman." />
@@ -304,6 +304,69 @@
     .spotlight-card::after { content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(128,210,83,.07),transparent 40%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:1; }
     .spotlight-card:hover::after { opacity:1; }
 
+    /* ─── Hero Grid Overlay ─── */
+    .hero-grid {
+      position:absolute;inset:0;pointer-events:none;z-index:0;
+      background-image:
+        linear-gradient(rgba(128,210,83,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(128,210,83,.04) 1px, transparent 1px);
+      background-size:64px 64px;
+      mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, transparent 20%, black 100%);
+      -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, transparent 20%, black 100%);
+    }
+
+    /* ─── AI Tag ─── */
+    .ai-tag {
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(128,210,83,.08);
+      border:1px solid rgba(128,210,83,.2);
+      border-radius:var(--pill);padding:7px 16px;
+      font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);
+      margin-bottom:28px;position:relative;z-index:2;
+    }
+    .ai-tag-dot { width:6px;height:6px;border-radius:50%;background:var(--green);animation:ping 1.5s ease-in-out infinite; }
+    @keyframes ping { 0%,100%{box-shadow:0 0 0 0 rgba(128,210,83,.6)} 50%{box-shadow:0 0 0 6px rgba(128,210,83,0)} }
+
+    /* ─── AI Stack Section ─── */
+    .ai-stack-grid {
+      display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px;
+    }
+    .ai-tool {
+      background:var(--card);border:1px solid var(--border);border-radius:16px;
+      padding:22px 16px;text-align:center;transition:all .3s;position:relative;overflow:hidden;
+    }
+    .ai-tool::before {
+      content:'';position:absolute;inset:0;border-radius:inherit;
+      background:radial-gradient(circle at 50% 0%, rgba(128,210,83,.06), transparent 70%);
+      opacity:0;transition:opacity .3s;
+    }
+    .ai-tool:hover { border-color:rgba(128,210,83,.3);transform:translateY(-2px); }
+    .ai-tool:hover::before { opacity:1; }
+    .ai-tool-icon { font-size:26px;margin-bottom:10px; }
+    .ai-tool-name { font-size:12px;font-weight:700;color:#fff;margin-bottom:3px; }
+    .ai-tool-cat { font-size:10px;color:var(--dim);font-weight:500; }
+
+    /* ─── Marquee badges ─── */
+    .badge-marquee-wrap { overflow:hidden;margin-top:32px; }
+    .badge-marquee { display:flex;gap:0;animation:marquee 24s linear infinite;width:max-content; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .badge-pill {
+      white-space:nowrap;padding:8px 18px;margin-right:12px;
+      border:1px solid rgba(255,255,255,.1);border-radius:var(--pill);
+      font-size:12px;font-weight:600;color:var(--muted);
+      background:rgba(255,255,255,.04);flex-shrink:0;
+    }
+    .badge-pill.active { color:var(--green);border-color:rgba(128,210,83,.35);background:rgba(128,210,83,.07); }
+
+    /* ─── Live indicator ─── */
+    .live-badge {
+      display:inline-flex;align-items:center;gap:6px;
+      background:rgba(128,210,83,.08);border:1px solid rgba(128,210,83,.2);
+      border-radius:var(--pill);padding:5px 12px;
+      font-size:11px;font-weight:700;color:var(--green);
+    }
+    .live-dot { width:6px;height:6px;border-radius:50%;background:var(--green);animation:ping 1.5s ease-in-out infinite; }
+
     /* ─── Reveal ─── */
     .reveal { opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease; }
     .reveal.in { opacity:1;transform:translateY(0); }
@@ -322,6 +385,7 @@
     @media (max-width:1100px) {
       .services-grid { grid-template-columns:repeat(3,1fr); }
       .sectors-grid { grid-template-columns:repeat(5,1fr); }
+      .ai-stack-grid { grid-template-columns:repeat(3,1fr); }
     }
     @media (max-width:1024px) {
       .nav-links { display:none; }
@@ -381,26 +445,30 @@
 
 <!-- ─── HERO ─── -->
 <section class="hero">
+  <div class="hero-grid"></div>
   <div class="hero-orbs">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
   </div>
 
-  <div class="hero-badge">Ajans Değil — Şirketinizin Dış Ticaret Departmanı</div>
+  <div class="ai-tag">
+    <div class="ai-tag-dot"></div>
+    Yapay Zeka × İhracat × Büyüme
+  </div>
 
   <h1 class="hero-h1">
-    Küresel İş<br />
-    <span class="hero-glow">Geliştirme Ortağınız.</span>
+    Uyurken Bile<br />
+    <span class="hero-glow">Müşteri Buluyorsunuz.</span>
   </h1>
 
   <p class="hero-sub typewriter-target">
-    Strateji, pazarlama, müşteri bulma ve operasyonu tek çatı altında yönetiyoruz. Siz üretmeye odaklanın, dünyaya açılmayı bize bırakın.
+    AI destekli alıcı tespiti, otomatik takip ve uçtan uca ihracat operasyonu. Rakipleriniz fuar peşindeyken siz sisteminizi çalıştırıyorsunuz.
   </p>
 
   <div class="hero-btns">
-    <a href="#iletisim" class="btn-green btn-magnetic">Hemen Teklif Al</a>
-    <a href="#sistem" class="btn-glass btn-magnetic">Sistemi İncele</a>
+    <a href="#iletisim" class="btn-green btn-magnetic">Ücretsiz Sistem Analizi</a>
+    <a href="#sistem" class="btn-glass btn-magnetic">AI Sistemini Gör</a>
   </div>
 
   <div class="hero-floats">
@@ -464,9 +532,9 @@
 <section class="section">
   <div class="container">
     <div class="reveal" style="text-align:center;">
-      <div class="section-label section-label-center">Neden Büyüyemiyorsunuz</div>
-      <h2 class="section-h2">İhracatta Büyüyemeyen Firmaların<br />Ortak 6 Sorunu</h2>
-      <p class="section-sub" style="margin:12px auto 0;">Bu sorunlardan birini bile yaşıyorsanız, tek başınıza ihracat yapmak size zaman ve kaynak kaybettirir.</p>
+      <div class="section-label section-label-center">Gerçek Problem</div>
+      <h2 class="section-h2">Manuel Çalışan Firmalar<br />Neden Kaybediyor?</h2>
+      <p class="section-sub" style="margin:12px auto 0;">AI kullanan rakipleriniz ayda 40+ alıcıyla görüşürken siz hâlâ fuardan müşteri bekliyorsunuz. Fark kapanmadan sistemi değiştirme zamanı.</p>
     </div>
     <div class="problem-grid reveal">
       <div class="problem-card">
@@ -513,25 +581,25 @@
 <section class="section section-alt">
   <div class="container">
     <div class="reveal" style="text-align:center;">
-      <div class="section-label section-label-center">Çözüm</div>
-      <h2 class="section-h2">Şirketinizin Dış Ticaret Departmanı<br />Artık Burada.</h2>
-      <p class="section-sub" style="margin:12px auto 0;">İhracat sürecinin her adımını sizin adınıza kuruyoruz, yönetiyoruz, büyütüyoruz.</p>
+      <div class="section-label section-label-center">AI + İnsan = Sonuç</div>
+      <h2 class="section-h2">Yapay Zeka ile Güçlendirilmiş<br />İhracat Sistemi.</h2>
+      <p class="section-sub" style="margin:12px auto 0;">AI hızıyla alıcı buluyor, insan uzmanlığıyla kapıyoruz. İki güç birleşince rakipten 4x hızlı büyüme geliyor.</p>
     </div>
     <div class="solution-grid reveal">
       <div class="solution-card">
-        <div class="solution-num">01</div>
-        <div class="solution-title">Tek Ekip</div>
-        <p class="solution-desc">Strateji uzmanından pazarlamacıya, operasyon yöneticisinden teşvik danışmanına — ihtiyacınız olan tüm uzmanlar tek çatı altında.</p>
+        <div class="solution-num">AI</div>
+        <div class="solution-title">7/24 Alıcı Bulma</div>
+        <p class="solution-desc">Apollo, LinkedIn ve 50+ veri kaynağını tarayan AI sistemimiz uyurken bile ideal alıcıları tespit ediyor ve sıraya koyuyor.</p>
       </div>
       <div class="solution-card">
-        <div class="solution-num">02</div>
-        <div class="solution-title">Tek Sistem</div>
-        <p class="solution-desc">CRM, lead generation, müşteri takibi ve raporlama — hepsi birbiriyle entegre çalışan bir ihracat işletim sistemiyle yönetilir.</p>
+        <div class="solution-num">⚡</div>
+        <div class="solution-title">Otomatik Takip</div>
+        <p class="solution-desc">Kişiselleştirilmiş outreach dizileri, otomatik follow-up'lar ve CRM entegrasyonuyla hiçbir lead kaybolmuyor.</p>
       </div>
       <div class="solution-card">
-        <div class="solution-num">03</div>
-        <div class="solution-title">Tek Süreç</div>
-        <p class="solution-desc">Analizden operasyona, finansmandan büyümeye kadar kesintisiz, şeffaf ve ölçülebilir bir süreç. Sonuçları birlikte izliyoruz.</p>
+        <div class="solution-num">🎯</div>
+        <div class="solution-title">İnsan Uzmanlığı</div>
+        <p class="solution-desc">Görüşme, müzakere, operasyon ve teşvik — AI'ın getirdiği leadleri deneyimli ekibimiz kapıya kadar taşıyor.</p>
       </div>
     </div>
 
@@ -687,6 +755,54 @@
         <div class="svc-icon">🤖</div>
         <div class="svc-title">Yapay Zeka Otomasyonları</div>
         <p class="svc-desc">Satış süreçlerinde AI entegrasyonu, otomatik lead scoring, müşteri iletişim otomasyonları.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AI STACK ─── -->
+<section class="section" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;">
+      <div>
+        <div class="section-label">Teknoloji Altyapısı</div>
+        <h2 class="section-h2">20+ AI Aracı,<br />Tek Sistemde Entegre.</h2>
+      </div>
+      <div style="text-align:right;">
+        <div class="live-badge"><div class="live-dot"></div> Aktif Sistem</div>
+        <p style="color:var(--muted);font-size:13px;margin-top:8px;">7/24 çalışıyor</p>
+      </div>
+    </div>
+    <div class="ai-stack-grid reveal">
+      <div class="ai-tool"><div class="ai-tool-icon">🔍</div><div class="ai-tool-name">Apollo.io</div><div class="ai-tool-cat">Alıcı Tespiti</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">💼</div><div class="ai-tool-name">LinkedIn Sales Nav</div><div class="ai-tool-cat">B2B Prospecting</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">🧪</div><div class="ai-tool-name">Clay</div><div class="ai-tool-cat">Veri Zenginleştirme</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">⚡</div><div class="ai-tool-name">Instantly.ai</div><div class="ai-tool-cat">E-posta Otomasyonu</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">📬</div><div class="ai-tool-name">Lemlist</div><div class="ai-tool-cat">Outreach Kampanyaları</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">🤖</div><div class="ai-tool-name">GPT-4o</div><div class="ai-tool-cat">İçerik & Analiz</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">📊</div><div class="ai-tool-name">HubSpot CRM</div><div class="ai-tool-cat">Lead Yönetimi</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">🎯</div><div class="ai-tool-name">Smartlead</div><div class="ai-tool-cat">Çoklu Hesap Outreach</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">📈</div><div class="ai-tool-name">Make (Integromat)</div><div class="ai-tool-cat">Süreç Otomasyonu</div></div>
+      <div class="ai-tool"><div class="ai-tool-icon">🌐</div><div class="ai-tool-name">Hunter.io</div><div class="ai-tool-cat">E-posta Doğrulama</div></div>
+    </div>
+    <div class="badge-marquee-wrap" style="margin-top:28px;">
+      <div class="badge-marquee">
+        <span class="badge-pill active">AI Lead Generation</span>
+        <span class="badge-pill">Otomatik Outreach</span>
+        <span class="badge-pill active">CRM Entegrasyonu</span>
+        <span class="badge-pill">Veri Analizi</span>
+        <span class="badge-pill active">7/24 Takip</span>
+        <span class="badge-pill">Kişiselleştirilmiş Mesaj</span>
+        <span class="badge-pill active">Lead Scoring</span>
+        <span class="badge-pill">A/B Test</span>
+        <span class="badge-pill active">AI Lead Generation</span>
+        <span class="badge-pill">Otomatik Outreach</span>
+        <span class="badge-pill active">CRM Entegrasyonu</span>
+        <span class="badge-pill">Veri Analizi</span>
+        <span class="badge-pill active">7/24 Takip</span>
+        <span class="badge-pill">Kişiselleştirilmiş Mesaj</span>
+        <span class="badge-pill active">Lead Scoring</span>
+        <span class="badge-pill">A/B Test</span>
       </div>
     </div>
   </div>
@@ -1212,8 +1328,8 @@
     <div class="cta-box reveal" style="padding:60px;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
       <div style="position:relative;z-index:1;">
         <div class="section-label">Ücretsiz Analiz</div>
-        <h2 class="cta-title" style="font-size:clamp(28px,3.5vw,46px);margin-bottom:16px;">İhracat Departmanınız<br /><span style="color:var(--green);">30 Günde Hazır.</span></h2>
-        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:28px;">Formu doldurun, 24 saat içinde sizi arayalım. İlk görüşme tamamen ücretsiz.</p>
+        <h2 class="cta-title" style="font-size:clamp(28px,3.5vw,46px);margin-bottom:16px;">AI Sisteminiz<br /><span style="color:var(--green);">30 Günde Kuruldu.</span></h2>
+        <p style="color:var(--muted);font-size:16px;line-height:1.7;margin-bottom:28px;">Formu doldurun, 24 saat içinde sizi arayalım. İlk analiz ve sistem planı tamamen ücretsiz.</p>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);"><span style="color:var(--green);font-weight:700;">✓</span> 30 dakikalık ücretsiz strateji görüşmesi</div>
           <div style="display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);"><span style="color:var(--green);font-weight:700;">✓</span> İhracat hazırlık skoru analizi</div>
