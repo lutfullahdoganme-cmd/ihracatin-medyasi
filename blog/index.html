@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Blog | İhracatın Medyası</title>
+  <meta name="description" content="İhracat stratejisi, devlet teşvikleri, global pazarlama ve yapay zeka hakkında güncel yazılar."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;-webkit-font-smoothing:antialiased;min-height:100vh}
+    a{text-decoration:none;color:inherit}
+    :root{--g:#80d253;--c:#111;--b:rgba(255,255,255,.07);--m:rgba(255,255,255,.58)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--b)}
+    .logo{font-size:16px;font-weight:700;display:flex;align-items:center;gap:10px}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--g);box-shadow:0 0 10px var(--g)}
+    .btn-nav{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);color:#fff;padding:9px 20px;border-radius:100px;font-size:14px;font-weight:600;cursor:pointer}
+    .hero{padding:130px 24px 60px;text-align:center}
+    .label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);margin-bottom:16px}
+    .label::before{content:'';width:20px;height:2px;background:var(--g);border-radius:1px}
+    h1{font-size:clamp(36px,5vw,60px);font-weight:800;letter-spacing:-2px;line-height:1.08;margin-bottom:16px}
+    .sub{font-size:17px;color:var(--m);max-width:480px;margin:0 auto;line-height:1.65}
+    .container{max-width:1100px;margin:0 auto;padding:0 32px 100px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .card{background:var(--c);border:1px solid var(--b);border-radius:20px;overflow:hidden;transition:all .3s;display:block}
+    .card:hover{border-color:rgba(128,210,83,.3);transform:translateY(-4px)}
+    .card-img{height:200px;display:flex;align-items:center;justify-content:center;font-size:60px;background:var(--c);position:relative;overflow:hidden}
+    .card-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(to bottom,transparent,var(--c))}
+    .card-body{padding:24px}
+    .cat{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--g);margin-bottom:10px}
+    .card-title{font-size:18px;font-weight:700;line-height:1.35;margin-bottom:10px;letter-spacing:-.3px}
+    .card-excerpt{font-size:14px;color:var(--m);line-height:1.65;margin-bottom:20px}
+    .card-footer{display:flex;justify-content:space-between;align-items:center}
+    .card-date{font-size:12px;color:rgba(255,255,255,.3)}
+    .card-read{font-size:13px;font-weight:700;color:var(--g)}
+    .divider{border:none;border-top:1px solid var(--b);margin:60px 0}
+    .cta{background:var(--c);border:1px solid rgba(128,210,83,.18);border-radius:24px;padding:64px;text-align:center;position:relative;overflow:hidden}
+    .cta::before{content:'';position:absolute;top:-150px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(128,210,83,.07),transparent 65%);pointer-events:none}
+    .cta h2{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:12px;position:relative;z-index:1}
+    .cta p{color:var(--m);font-size:16px;margin-bottom:28px;position:relative;z-index:1}
+    .btn-g{background:var(--g);color:#0a0a0a;padding:14px 32px;border-radius:100px;font-size:15px;font-weight:700;display:inline-block;position:relative;z-index:1}
+    .btn-g:hover{background:#5cf28e}
+    footer{border-top:1px solid var(--b);padding:32px;text-align:center;font-size:13px;color:var(--m)}
+    @media(max-width:768px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="logo"><div class="dot"></div>İhracatın Medyası</a>
+  <a href="/#iletisim" class="btn-nav">Ücretsiz Analiz</a>
+</nav>
+
+<div class="hero">
+  <div class="label">Blog</div>
+  <h1>İhracat Dünyasından<br />Güncel İçerikler</h1>
+  <p class="sub">Strateji, teşvik, pazarlama ve teknoloji — ihracatçı için her şey.</p>
+</div>
+
+<div class="container">
+  <div class="grid">
+
+    <a href="/blog/korfez-pazari-2025.html" class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#001a1f,#003040);">🌍</div>
+      <div class="card-body">
+        <div class="cat">İhracat Stratejisi</div>
+        <div class="card-title">2025'te Körfez Pazarı: Türk Firmaları İçin En Büyük Fırsatlar</div>
+        <p class="card-excerpt">BAE, Suudi Arabistan ve Katar'da Türk markalarına yönelik talep analizi ve giriş stratejileri.</p>
+        <div class="card-footer">
+          <span class="card-date">Mayıs 2025 · 8 dk okuma</span>
+          <span class="card-read">Okumaya Devam Et →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/blog/kosgeb-tim-tesvik-rehberi.html" class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#001a10,#003020);">💶</div>
+      <div class="card-body">
+        <div class="cat">Devlet Teşvikleri</div>
+        <div class="card-title">2025 KOSGEB & TİM Teşvik Rehberi: Kim Başvurabilir, Nasıl?</div>
+        <p class="card-excerpt">Güncel teşvik kalemleri, başvuru kriterleri ve sıkça yapılan hatalar. Adım adım kılavuz.</p>
+        <div class="card-footer">
+          <span class="card-date">Nisan 2025 · 10 dk okuma</span>
+          <span class="card-read">Okumaya Devam Et →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/blog/ai-ile-musteri-bulmak.html" class="card">
+      <div class="card-img" style="background:linear-gradient(135deg,#0a001a,#1a0040);">🤖</div>
+      <div class="card-body">
+        <div class="cat">Yapay Zeka & İhracat</div>
+        <div class="card-title">AI ile Yurt Dışı Müşteri Bulmak: Geleneksel Yöntemleri Geride Bıraktık</div>
+        <p class="card-excerpt">Yapay zeka destekli lead generation ile 3 ayda 40 nitelikli alıcı görüşmesi nasıl gerçekleştirilir?</p>
+        <div class="card-footer">
+          <span class="card-date">Mart 2025 · 9 dk okuma</span>
+          <span class="card-read">Okumaya Devam Et →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <hr class="divider"/>
+
+  <div class="cta">
+    <h2>İhracata Başlamaya Hazır mısınız?</h2>
+    <p>30 dakikalık ücretsiz görüşmede ihracat stratejinizi birlikte belirleyelim.</p>
+    <a href="/#iletisim" class="btn-g">Ücretsiz Analiz Al</a>
+  </div>
+</div>
+
+<footer>© 2025 İhracatın Medyası. Tüm hakları saklıdır. · <a href="/" style="color:var(--g)">Ana Sayfa</a></footer>
+</body>
+</html>
