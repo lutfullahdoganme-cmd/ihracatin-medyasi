@@ -3,824 +3,412 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>İhracatın Medyası — Türkiye'nin İhracat Ekosistemi</title>
-  <meta name="description" content="İhracat, ithalat, teşvik, pazarlama ve operasyon danışmanlığında Türkiye'nin lider stratejik ekibi." />
+  <title>İhracatın Medyası | Şirketinizin Dış Ticaret Departmanı</title>
+  <meta name="description" content="İhracat stratejisi, global pazarlama, müşteri bulma, lojistik ve teşvik danışmanlığını tek çatı altında yönetiyoruz. Ajans değil — şirketinizin dış ticaret departmanı." />
+  <meta name="keywords" content="ihracat danışmanlığı, ihracat departmanı, global pazarlama, devlet teşvikleri, eximbank danışmanlığı, distribütör bulma, müşteri bulma, dış ticaret" />
+  <meta property="og:title" content="İhracatın Medyası | Şirketinizin Dış Ticaret Departmanı" />
+  <meta property="og:description" content="Türkiye'den dünyaya açılmak isteyen firmalara ihracatın tüm süreçlerinde ortaklık ediyoruz. Ajans değil, departman." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ihracatinmedyasi.com" />
+  <link rel="canonical" href="https://ihracatinmedyasi.com" />
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"İhracatın Medyası","url":"https://ihracatinmedyasi.com","description":"İhracat departmanı hizmetleri — strateji, pazarlama, operasyon","contactPoint":{"@type":"ContactPoint","email":"warecomagency@gmail.com","contactType":"sales"}}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
   <style>
-    /* ─── Reset ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0a0a0a;
-      color: #fff;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
 
-    /* ─── Design tokens ─── */
     :root {
-      --bg:       #0a0a0a;
-      --card:     rgb(0, 35, 41);
-      --card2:    rgb(3, 21, 26);
-      --green:    rgb(128, 210, 83);
-      --green2:   rgb(92, 242, 142);
-      --white:    #ffffff;
-      --muted:    rgba(255,255,255,0.75);
-      --dim:      rgba(255,255,255,0.4);
-      --glass:    rgba(255,255,255,0.12);
-      --black:    rgb(10,10,10);
-      --radius:   24px;
-      --pill:     100px;
+      --bg:      #0a0a0a;
+      --card:    #111111;
+      --card2:   #0d0d0d;
+      --green:   #80d253;
+      --green2:  #5cf28e;
+      --white:   #ffffff;
+      --muted:   rgba(255,255,255,0.58);
+      --dim:     rgba(255,255,255,0.32);
+      --border:  rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.13);
+      --radius:  20px;
+      --pill:    100px;
     }
+
+    /* ─── Scroll Progress ─── */
+    .scroll-progress { position:fixed;top:0;left:0;right:0;z-index:300;height:2px;pointer-events:none; }
+    .scroll-progress-fill { height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--green2));box-shadow:0 0 10px var(--green);transition:width .08s linear; }
+
+    /* ─── Scroll Top ─── */
+    .scroll-top { position:fixed;bottom:28px;right:28px;z-index:200;width:44px;height:44px;border-radius:12px;background:var(--card);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transform:translateY(10px);transition:all .3s;backdrop-filter:blur(12px); }
+    .scroll-top.show { opacity:1;pointer-events:auto;transform:translateY(0); }
+    .scroll-top:hover { border-color:var(--green);color:var(--green);box-shadow:0 0 16px rgba(128,210,83,.2); }
 
     /* ─── Nav ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 16px 32px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(10,10,10,0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-logo {
-      font-size: 17px; font-weight: 700; letter-spacing: -0.3px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-logo-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 10px var(--green);
-    }
-    .nav-links {
-      display: flex; align-items: center; gap: 32px; list-style: none;
-    }
-    .nav-links a {
-      font-size: 14px; font-weight: 500; color: var(--muted);
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .btn-nav {
-      background: var(--glass);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--white);
-      padding: 10px 22px;
-      border-radius: var(--pill);
-      font-size: 14px; font-weight: 600;
-      cursor: pointer; transition: all 0.2s;
-    }
-    .btn-nav:hover { background: rgba(255,255,255,0.2); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 22px; height: 2px; background: #fff; border-radius: 2px; }
+    nav { position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:border-color .3s; }
+    .nav-logo { font-size:16px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;gap:10px; }
+    .nav-dot { width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green); }
+    .nav-links { display:flex;align-items:center;gap:28px;list-style:none; }
+    .nav-links a { font-size:14px;font-weight:500;color:var(--muted);transition:color .2s; }
+    .nav-links a:hover { color:#fff; }
+    .btn-nav { background:rgba(255,255,255,.08);border:1px solid var(--border2);color:#fff;padding:9px 20px;border-radius:var(--pill);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s; }
+    .btn-nav:hover { background:rgba(255,255,255,.15); }
+    .hamburger { display:none;flex-direction:column;gap:5px;cursor:pointer; }
+    .hamburger span { width:22px;height:2px;background:#fff;border-radius:2px; }
+    .mob-nav { display:none;position:fixed;inset:0;z-index:99;background:#0a0a0a;padding:90px 32px 32px;flex-direction:column;gap:20px; }
+    .mob-nav.open { display:flex; }
+    .mob-nav a { font-size:24px;font-weight:700;color:var(--muted); }
+    .mob-nav a:hover { color:#fff; }
 
     /* ─── Buttons ─── */
-    .btn-green {
-      background: var(--green);
-      color: var(--black);
-      padding: 14px 28px; border-radius: var(--pill);
-      font-size: 15px; font-weight: 700;
-      border: none; cursor: pointer;
-      transition: all 0.2s; display: inline-block;
-    }
-    .btn-green:hover { background: var(--green2); transform: translateY(-1px); }
-    .btn-glass {
-      background: var(--glass);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--white);
-      padding: 14px 28px; border-radius: var(--pill);
-      font-size: 15px; font-weight: 600;
-      cursor: pointer; transition: all 0.2s; display: inline-block;
-    }
-    .btn-glass:hover { background: rgba(255,255,255,0.2); }
+    .btn-green { background:var(--green);color:#0a0a0a;padding:14px 28px;border-radius:var(--pill);font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all .2s;display:inline-block; }
+    .btn-green:hover { background:var(--green2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(128,210,83,.25); }
+    .btn-glass { background:rgba(255,255,255,.07);backdrop-filter:blur(8px);border:1px solid var(--border2);color:#fff;padding:14px 28px;border-radius:var(--pill);font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;display:inline-block; }
+    .btn-glass:hover { background:rgba(255,255,255,.14); }
 
-    /* ─── Hero ─── */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 120px 24px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(128,210,83,0.12), transparent);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--glass);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--pill);
-      padding: 8px 18px;
-      font-size: 13px; font-weight: 500; color: var(--muted);
-      margin-bottom: 28px;
-    }
-    .hero-badge-green { color: var(--green); font-weight: 600; }
-    .hero-h1 {
-      font-size: clamp(40px, 6.5vw, 72px);
-      font-weight: 800; line-height: 1.05;
-      letter-spacing: -2.5px;
-      max-width: 860px;
-      margin-bottom: 20px;
-    }
-    .hero-h1 span { color: var(--green); }
-    .hero-sub {
-      font-size: clamp(15px, 1.8vw, 18px);
-      color: var(--muted); max-width: 500px;
-      line-height: 1.65; margin-bottom: 40px;
-    }
-    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ─── Ticker / Marquee ─── */
-    .ticker-wrap {
-      width: 100%; overflow: hidden;
-      margin-top: 72px;
-      background: var(--card);
-      border-top: 1px solid rgba(255,255,255,0.07);
-      padding: 18px 0;
-    }
-    .ticker-track {
-      display: flex; gap: 0;
-      animation: ticker 28s linear infinite;
-      width: max-content;
-    }
-    .ticker-track:hover { animation-play-state: paused; }
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .ticker-item {
-      display: flex; align-items: center; gap: 12px;
-      padding: 0 40px; white-space: nowrap;
-      font-size: 14px; font-weight: 500; color: var(--muted);
-    }
-    .ticker-item strong { color: var(--green); font-weight: 700; }
-    .ticker-sep {
-      width: 4px; height: 4px; border-radius: 50%;
-      background: rgba(255,255,255,0.2); flex-shrink: 0;
-    }
-
-    /* ─── Section layout ─── */
-    .section { padding: 100px 0; }
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
-    .section-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--green);
-      margin-bottom: 16px;
-    }
-    .section-label::before {
-      content: ''; width: 20px; height: 2px;
-      background: var(--green); border-radius: 1px;
-    }
-    .section-h2 {
-      font-size: clamp(30px, 4vw, 52px);
-      font-weight: 800; letter-spacing: -1.5px; line-height: 1.1;
-    }
-    .text-muted { color: var(--muted); }
-
-    /* ─── Mission / About split ─── */
-    .mission-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-    }
-    .mission-left .section-h2 { margin-bottom: 20px; }
-    .mission-left p { color: var(--muted); font-size: 16px; line-height: 1.7; margin-bottom: 32px; }
-    .mission-stats {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); overflow: hidden;
-    }
-    .mstat {
-      background: var(--card);
-      padding: 28px 24px;
-    }
-    .mstat-num { font-size: 40px; font-weight: 800; letter-spacing: -1.5px; color: var(--white); }
-    .mstat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
-    .mission-right {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 40px;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .mission-right-tag {
-      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--green); margin-bottom: 16px;
-    }
-    .mission-right-title {
-      font-size: 22px; font-weight: 700; line-height: 1.35;
-      margin-bottom: 16px; letter-spacing: -0.5px;
-    }
-    .mission-right p { color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .process-steps { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
-    .process-step {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 12px;
-      transition: border-color 0.2s;
-    }
-    .process-step:hover { border-color: rgba(128,210,83,0.3); }
-    .step-icon {
-      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
-      background: rgba(128,210,83,0.12);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
-    }
-    .step-text { font-size: 14px; font-weight: 600; }
-    .step-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-
-    /* ─── Services ─── */
-    .services-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 48px; flex-wrap: wrap; gap: 24px;
-    }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); overflow: hidden;
-    }
-    .svc-card {
-      background: var(--card);
-      padding: 36px 32px;
-      transition: background 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .svc-card::after {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--green), transparent);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .svc-card:hover { background: var(--card2); }
-    .svc-card:hover::after { opacity: 1; }
-    .svc-num {
-      font-size: 11px; font-weight: 700; letter-spacing: 2px;
-      color: var(--green); opacity: 0.5; margin-bottom: 20px;
-    }
-    .svc-title {
-      font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
-      margin-bottom: 12px; line-height: 1.25;
-    }
-    .svc-desc { font-size: 14px; color: var(--muted); line-height: 1.65; }
-    .svc-arrow {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 32px; height: 32px; border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: var(--muted); font-size: 14px;
-      margin-top: 24px; transition: all 0.2s;
-    }
-    .svc-card:hover .svc-arrow {
-      border-color: var(--green); color: var(--green);
-    }
-
-    /* ─── Why / Process marquee section ─── */
-    .why-section { background: var(--card); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .why-left .section-h2 { margin-bottom: 16px; }
-    .why-left p { color: var(--muted); font-size: 16px; line-height: 1.7; max-width: 420px; }
-    .why-marquee-wrap { overflow: hidden; margin-top: 32px; }
-    .why-marquee {
-      display: flex; gap: 0;
-      animation: marquee 20s linear infinite;
-      width: max-content;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .why-badge {
-      white-space: nowrap; padding: 8px 18px; margin-right: 12px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--pill);
-      font-size: 13px; font-weight: 600; color: var(--muted);
-      background: rgba(255,255,255,0.04);
-    }
-    .why-badge.active { color: var(--green); border-color: rgba(128,210,83,0.4); background: rgba(128,210,83,0.08); }
-    .why-stats { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); border-radius: var(--radius); overflow: hidden; }
-    .wstat {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 28px; background: rgb(3,21,26);
-      border: none;
-    }
-    .wstat-num { font-size: 36px; font-weight: 800; letter-spacing: -1px; color: var(--white); }
-    .wstat-label { font-size: 14px; color: var(--muted); text-align: right; max-width: 200px; line-height: 1.4; }
-
-    /* ─── Case studies ─── */
-    .cases-scroll-wrap { overflow: hidden; margin-top: 48px; cursor: grab; }
-    .cases-scroll-wrap:active { cursor: grabbing; }
-    .cases-track {
-      display: flex; gap: 20px;
-      animation: cases-scroll 30s linear infinite;
-      width: max-content;
-    }
-    .cases-track:hover { animation-play-state: paused; }
-    @keyframes cases-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .case-card {
-      width: 340px; flex-shrink: 0;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-    .case-card:hover { border-color: rgba(128,210,83,0.3); }
-    .case-img {
-      height: 200px; overflow: hidden; position: relative;
-    }
-    .case-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.4s;
-    }
-    .case-card:hover .case-img img { transform: scale(1.04); }
-    .case-img-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 48px;
-    }
-    .case-body { padding: 24px; }
-    .case-metrics { display: flex; gap: 16px; margin-bottom: 16px; }
-    .case-metric { font-size: 13px; font-weight: 700; color: var(--green); }
-    .case-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .case-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
-
-    /* ─── Comparison ─── */
-    .compare-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px;
-    }
-    .compare-col {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-    .compare-col.theirs { background: rgb(3,21,26); }
-    .compare-col.ours {
-      background: var(--card);
-      border-color: rgba(128,210,83,0.3);
-    }
-    .compare-head {
-      padding: 20px 28px 16px;
-      font-size: 15px; font-weight: 700;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .compare-head.ours-head { color: var(--green); }
-    .compare-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 14px 28px;
-      font-size: 14px; color: var(--muted);
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .compare-item:last-child { border-bottom: none; }
-    .ci-x { color: rgba(255,80,80,0.7); font-size: 16px; flex-shrink: 0; }
-    .ci-check { color: var(--green); font-size: 16px; flex-shrink: 0; }
-    .compare-item.ours-item { color: rgba(255,255,255,0.85); }
-
-    /* ─── Testimonials ─── */
-    .testi-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px;
-    }
-    .testi-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius);
-      padding: 28px; transition: border-color 0.2s;
-    }
-    .testi-card:hover { border-color: rgba(128,210,83,0.25); }
-    .testi-stars { color: var(--green); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
-    .testi-text { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: rgba(128,210,83,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; flex-shrink: 0;
-    }
-    .testi-name { font-size: 14px; font-weight: 700; }
-    .testi-role { font-size: 12px; color: var(--dim); }
-
-    /* ─── Bültenler ─── */
-    .bulten-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px;
-    }
-    .bulten-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius); overflow: hidden;
-      cursor: pointer; transition: all 0.3s;
-    }
-    .bulten-card:hover { border-color: rgba(128,210,83,0.3); transform: translateY(-4px); }
-    .bulten-img {
-      height: 180px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 52px;
-      background: var(--card2);
-      position: relative; overflow: hidden;
-    }
-    .bulten-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 50%, var(--card));
-    }
-    .bulten-body { padding: 24px; }
-    .bulten-cat { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
-    .bulten-title { font-size: 16px; font-weight: 700; line-height: 1.35; margin-bottom: 10px; }
-    .bulten-excerpt { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
-    .bulten-footer { display: flex; justify-content: space-between; align-items: center; }
-    .bulten-date { font-size: 12px; color: var(--dim); }
-    .bulten-read { font-size: 12px; font-weight: 700; color: var(--green); }
-
-    /* ─── Newsletter ─── */
-    .newsletter-box {
-      margin-top: 48px;
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius);
-      padding: 52px 60px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-      position: relative; overflow: hidden;
-    }
-    .newsletter-box::before {
-      content: ''; position: absolute; right: -100px; top: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(128,210,83,0.06), transparent 70%);
-      pointer-events: none;
-    }
-    .nl-title { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
-    .nl-sub { font-size: 14px; color: var(--muted); line-height: 1.65; }
-    .nl-form { display: flex; gap: 10px; }
-    .nl-input {
-      flex: 1; background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--pill); padding: 13px 22px;
-      color: #fff; font-size: 14px; font-family: inherit;
-      outline: none; transition: border-color 0.2s;
-    }
-    .nl-input::placeholder { color: rgba(255,255,255,0.3); }
-    .nl-input:focus { border-color: var(--green); }
-
-    /* ─── FAQ ─── */
-    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 48px; }
-    .faq-item {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px; overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .faq-item.open { border-color: rgba(128,210,83,0.25); }
-    .faq-q {
-      padding: 22px 28px; font-size: 15px; font-weight: 600;
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      gap: 16px;
-    }
-    .faq-icon {
-      width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
-      border: 1px solid rgba(255,255,255,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; color: var(--muted);
-      transition: all 0.3s;
-    }
-    .faq-item.open .faq-icon {
-      background: rgba(128,210,83,0.1);
-      border-color: rgba(128,210,83,0.4);
-      color: var(--green); transform: rotate(45deg);
-    }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.2s;
-    }
-    .faq-item.open .faq-a { max-height: 300px; }
-    .faq-a-inner {
-      padding: 0 28px 22px;
-      font-size: 14px; color: var(--muted); line-height: 1.7;
-    }
-
-    /* ─── Big CTA ─── */
-    .cta-section { text-align: center; }
-    .cta-box {
-      background: var(--card);
-      border: 1px solid rgba(128,210,83,0.2);
-      border-radius: 32px;
-      padding: 100px 60px;
-      position: relative; overflow: hidden;
-    }
-    .cta-box::before {
-      content: ''; position: absolute;
-      top: -200px; left: 50%; transform: translateX(-50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(128,210,83,0.08), transparent 65%);
-      pointer-events: none;
-    }
-    .cta-title {
-      font-size: clamp(36px, 5vw, 60px);
-      font-weight: 800; letter-spacing: -2px; line-height: 1.1;
-      margin-bottom: 20px; position: relative; z-index: 1;
-    }
-    .cta-sub {
-      font-size: 17px; color: var(--muted);
-      margin-bottom: 40px; position: relative; z-index: 1;
-    }
-    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
-
-    /* ─── Footer ─── */
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 60px 0 36px;
-    }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 52px;
-    }
-    .footer-brand-name { font-size: 17px; font-weight: 700; display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-    .footer-brand p { font-size: 13px; color: var(--muted); line-height: 1.7; max-width: 240px; }
-    .footer-col h4 { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 20px; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-    .footer-col ul li a { font-size: 13px; color: var(--muted); transition: color 0.2s; }
-    .footer-col ul li a:hover { color: var(--white); }
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center;
-      padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.06);
-      flex-wrap: wrap; gap: 16px;
-    }
-    .footer-copy { font-size: 13px; color: var(--dim); }
-    .footer-socials { display: flex; gap: 10px; }
-    .social-btn {
-      width: 36px; height: 36px; border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; color: var(--muted);
-      transition: all 0.2s; cursor: pointer;
-    }
-    .social-btn:hover { border-color: var(--green); color: var(--green); }
-
-    /* ─── Team ─── */
-    .team-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 20px; margin-top: 48px;
-    }
-    .team-card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: all 0.3s;
-      position: relative;
-    }
-    .team-card:hover {
-      border-color: rgba(128,210,83,0.3);
-      transform: translateY(-4px);
-    }
-    .team-photo {
-      width: 100%; aspect-ratio: 4/5;
-      object-fit: cover; object-position: top;
-      display: block;
-      transition: transform 0.4s;
-    }
-    .team-card:hover .team-photo { transform: scale(1.03); }
-    .team-photo-wrap { overflow: hidden; position: relative; }
-    .team-photo-wrap::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 60%; pointer-events: none;
-      background: linear-gradient(to bottom, transparent, var(--card));
-    }
-    .team-info { padding: 20px 20px 22px; }
-    .team-name { font-size: 16px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
-    .team-role { font-size: 13px; color: var(--green); font-weight: 600; margin-bottom: 8px; }
-    .team-bio { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
-    /* ─── Scroll Progress Bar ─── */
-    .scroll-progress {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-      height: 2px; pointer-events: none;
-    }
-    .scroll-progress-fill {
-      height: 100%; width: 0%;
-      background: linear-gradient(90deg, var(--green), var(--green2));
-      box-shadow: 0 0 10px var(--green), 0 0 20px rgba(128,210,83,0.4);
-      transition: width 0.08s linear;
-    }
+    /* ─── Layout ─── */
+    .section { padding:100px 0; }
+    .section-alt { background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border); }
+    .container { max-width:1160px;margin:0 auto;padding:0 32px; }
+    .section-label { display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:16px; }
+    .section-label::before { content:'';width:20px;height:2px;background:var(--green);border-radius:1px; }
+    .section-label-center { justify-content:center; }
+    .section-h2 { font-size:clamp(28px,4vw,50px);font-weight:800;letter-spacing:-1.5px;line-height:1.1; }
+    .section-sub { color:var(--muted);font-size:17px;line-height:1.7;max-width:520px;margin-top:12px; }
 
     /* ─── Hero Orbs ─── */
-    .hero-orbs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(120px); will-change: transform; }
-    .orb-1 {
-      width: 900px; height: 900px;
-      background: radial-gradient(circle, rgba(128,210,83,0.14), transparent 65%);
-      top: -400px; left: -250px;
-      animation: orbDrift 13s ease-in-out infinite;
-    }
-    .orb-2 {
-      width: 650px; height: 650px;
-      background: radial-gradient(circle, rgba(0,180,220,0.09), transparent 65%);
-      top: -80px; right: -200px;
-      animation: orbDrift 17s ease-in-out infinite reverse;
-    }
-    .orb-3 {
-      width: 550px; height: 550px;
-      background: radial-gradient(circle, rgba(92,242,142,0.08), transparent 65%);
-      bottom: 40px; left: 38%;
-      animation: orbDrift 15s ease-in-out infinite;
-      animation-delay: -6s;
-    }
-    @keyframes orbDrift {
-      0%,100% { transform: translate(0,0) scale(1); }
-      25%  { transform: translate(50px,-60px) scale(1.06); }
-      50%  { transform: translate(-30px,40px) scale(0.94); }
-      75%  { transform: translate(35px,25px) scale(1.04); }
-    }
+    .hero-orbs { position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0; }
+    .orb { position:absolute;border-radius:50%;filter:blur(120px);will-change:transform; }
+    .orb-1 { width:800px;height:800px;background:radial-gradient(circle,rgba(128,210,83,.13),transparent 65%);top:-350px;left:-200px;animation:orbDrift 13s ease-in-out infinite; }
+    .orb-2 { width:600px;height:600px;background:radial-gradient(circle,rgba(0,180,220,.08),transparent 65%);top:-80px;right:-180px;animation:orbDrift 17s ease-in-out infinite reverse; }
+    .orb-3 { width:500px;height:500px;background:radial-gradient(circle,rgba(92,242,142,.07),transparent 65%);bottom:60px;left:40%;animation:orbDrift 15s ease-in-out infinite;animation-delay:-6s; }
+    @keyframes orbDrift { 0%,100%{transform:translate(0,0) scale(1)} 25%{transform:translate(50px,-55px) scale(1.06)} 50%{transform:translate(-30px,40px) scale(.95)} 75%{transform:translate(35px,25px) scale(1.04)} }
 
-    /* ─── Hero Hook Headline ─── */
-    .hero-glow {
-      color: var(--green); display: inline-block;
-      animation: glowPulse 4s ease-in-out infinite;
-    }
-    @keyframes glowPulse {
-      0%,100% { text-shadow: 0 0 30px rgba(128,210,83,0.35), 0 0 70px rgba(128,210,83,0.15); }
-      50%      { text-shadow: 0 0 55px rgba(128,210,83,0.55), 0 0 110px rgba(128,210,83,0.28); }
-    }
-    .hero-ya {
-      font-size: clamp(20px, 2.8vw, 36px);
-      font-weight: 500; letter-spacing: 3px;
-      color: var(--muted); display: block; margin-top: 8px;
-    }
+    /* ─── Hero ─── */
+    .hero { min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 24px 0;position:relative;overflow:hidden; }
+    .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(128,210,83,.1);border:1px solid rgba(128,210,83,.25);border-radius:var(--pill);padding:7px 16px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:28px;position:relative;z-index:2; }
+    .hero-h1 { font-size:clamp(40px,6.5vw,76px);font-weight:900;line-height:1.03;letter-spacing:-2.5px;max-width:880px;margin-bottom:22px;position:relative;z-index:2; }
+    .hero-glow { color:var(--green);animation:glowPulse 4s ease-in-out infinite;display:inline-block; }
+    @keyframes glowPulse { 0%,100%{text-shadow:0 0 30px rgba(128,210,83,.35),0 0 70px rgba(128,210,83,.15)} 50%{text-shadow:0 0 55px rgba(128,210,83,.55),0 0 110px rgba(128,210,83,.28)} }
+    .hero-sub { font-size:clamp(16px,1.8vw,19px);color:var(--muted);max-width:540px;line-height:1.65;margin-bottom:0;position:relative;z-index:2; }
+    .tw-cursor { display:inline-block;width:2px;height:1em;background:var(--green);margin-left:2px;vertical-align:text-bottom;animation:blink .75s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .hero-btns { display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;position:relative;z-index:2; }
 
-    /* ─── Hero Floating Stats ─── */
-    .hero-floats {
-      display: flex; gap: 12px; justify-content: center;
-      flex-wrap: wrap; margin: 44px 0 0; position: relative; z-index: 2;
-    }
-    .hero-float {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px; padding: 16px 24px; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .hero-float::before {
-      content: ''; position: absolute; inset: 0; border-radius: inherit;
-      background: linear-gradient(135deg, rgba(128,210,83,0.07), transparent);
-      pointer-events: none;
-    }
-    .hero-float:nth-child(1) { animation: floatCard 7s ease-in-out infinite; }
-    .hero-float:nth-child(2) { animation: floatCard 8.5s ease-in-out infinite; animation-delay: -2s; }
-    .hero-float:nth-child(3) { animation: floatCard 6.5s ease-in-out infinite; animation-delay: -4s; }
-    .hero-float:nth-child(4) { animation: floatCard 9s ease-in-out infinite; animation-delay: -1.5s; }
-    @keyframes floatCard {
-      0%,100% { transform: translateY(0px); }
-      50%      { transform: translateY(-9px); }
-    }
-    .hero-float-num {
-      font-size: 28px; font-weight: 800; letter-spacing: -1px;
-      color: var(--green); line-height: 1;
-    }
-    .hero-float-label { font-size: 11px; color: var(--muted); margin-top: 5px; white-space: nowrap; font-weight: 500; }
+    /* ─── Hero Floats ─── */
+    .hero-floats { display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:44px 0 0;position:relative;z-index:2; }
+    .hero-float { background:rgba(255,255,255,.05);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 22px;text-align:center;position:relative;overflow:hidden; }
+    .hero-float::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(128,210,83,.07),transparent);pointer-events:none; }
+    .hero-float:nth-child(1){animation:floatCard 7s ease-in-out infinite}
+    .hero-float:nth-child(2){animation:floatCard 8.5s ease-in-out infinite;animation-delay:-2s}
+    .hero-float:nth-child(3){animation:floatCard 6.5s ease-in-out infinite;animation-delay:-4s}
+    .hero-float:nth-child(4){animation:floatCard 9s ease-in-out infinite;animation-delay:-1.5s}
+    @keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .hero-float-num { font-size:26px;font-weight:800;letter-spacing:-1px;color:var(--green);line-height:1; }
+    .hero-float-label { font-size:11px;color:var(--muted);margin-top:5px;white-space:nowrap;font-weight:500; }
 
-    /* ─── Typewriter cursor ─── */
-    .tw-cursor {
-      display: inline-block; width: 2px; height: 1em;
-      background: var(--green); margin-left: 2px;
-      vertical-align: text-bottom;
-      animation: blink 0.75s step-end infinite;
-    }
-    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0; } }
+    /* ─── Ticker ─── */
+    .ticker-wrap { width:100%;overflow:hidden;margin-top:72px;background:var(--card);border-top:1px solid var(--border);padding:18px 0;position:relative;z-index:2; }
+    .ticker-track { display:flex;gap:0;animation:ticker 32s linear infinite;width:max-content; }
+    .ticker-track:hover { animation-play-state:paused; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item { display:flex;align-items:center;gap:12px;padding:0 40px;white-space:nowrap;font-size:14px;font-weight:500;color:var(--muted); }
+    .ticker-item strong { color:var(--green);font-weight:700; }
+    .ticker-sep { width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0; }
 
-    /* ─── Spotlight card ─── */
-    .spotlight-card { position: relative; }
-    .spotlight-card::after {
-      content: ''; position: absolute; inset: 0; border-radius: inherit;
-      background: radial-gradient(500px circle at var(--mx,50%) var(--my,50%), rgba(128,210,83,0.07), transparent 40%);
-      opacity: 0; transition: opacity 0.3s; pointer-events: none; z-index: 1;
-    }
-    .spotlight-card:hover::after { opacity: 1; }
+    /* ─── Problem Section ─── */
+    .problem-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:48px; }
+    .problem-card { background:var(--card);padding:32px 28px;transition:background .3s;position:relative; }
+    .problem-card:hover { background:#161616; }
+    .problem-icon { width:40px;height:40px;border-radius:10px;background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.15);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:18px; }
+    .problem-title { font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.35; }
+    .problem-desc { font-size:13px;color:var(--muted);line-height:1.65; }
+    .problem-x { position:absolute;top:20px;right:20px;width:20px;height:20px;border-radius:50%;background:rgba(255,80,80,.1);color:rgba(255,100,100,.7);font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700; }
 
-    /* ─── Scroll to top ─── */
-    .scroll-top {
-      position: fixed; bottom: 28px; right: 28px; z-index: 200;
-      width: 44px; height: 44px; border-radius: 12px;
-      background: var(--card); border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted); font-size: 18px; cursor: pointer;
-      opacity: 0; pointer-events: none; transform: translateY(10px);
-      transition: all 0.3s; backdrop-filter: blur(12px);
-    }
-    .scroll-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
-    .scroll-top:hover { border-color: var(--green); color: var(--green); box-shadow: 0 0 16px rgba(128,210,83,0.2); }
+    /* ─── Solution ─── */
+    .solution-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px; }
+    .solution-card { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;text-align:center;transition:all .3s;position:relative;overflow:hidden; }
+    .solution-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .3s; }
+    .solution-card:hover { border-color:rgba(128,210,83,.25); }
+    .solution-card:hover::before { opacity:1; }
+    .solution-num { font-size:48px;font-weight:900;letter-spacing:-2px;color:var(--green);opacity:.25;line-height:1;margin-bottom:16px; }
+    .solution-title { font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:12px; }
+    .solution-desc { font-size:14px;color:var(--muted);line-height:1.7; }
 
-    /* ─── Reveal from sides ─── */
-    .reveal-left  { opacity:0; transform:translateX(-32px); transition:opacity 0.65s ease,transform 0.65s ease; }
-    .reveal-right { opacity:0; transform:translateX( 32px); transition:opacity 0.65s ease,transform 0.65s ease; }
-    .reveal-left.in,.reveal-right.in { opacity:1; transform:translateX(0); }
+    /* ─── Export OS ─── */
+    .eos-flow { display:flex;align-items:center;gap:0;overflow-x:auto;padding:48px 0 24px;margin-top:8px;scrollbar-width:none; }
+    .eos-flow::-webkit-scrollbar { display:none; }
+    .eos-step { flex-shrink:0;text-align:center;width:120px; }
+    .eos-icon { width:60px;height:60px;border-radius:16px;background:rgba(128,210,83,.08);border:1px solid rgba(128,210,83,.2);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 12px; }
+    .eos-name { font-size:13px;font-weight:700;line-height:1.3;color:#fff; }
+    .eos-num { font-size:10px;color:var(--green);font-weight:700;letter-spacing:1px;margin-bottom:6px; }
+    .eos-arrow { flex-shrink:0;width:40px;display:flex;align-items:center;justify-content:center;color:rgba(128,210,83,.4);font-size:18px;padding-bottom:26px; }
 
-    /* ─── Scroll animations ─── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.in { opacity: 1; transform: translateY(0); }
+    /* ─── Services ─── */
+    .services-grid { display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:48px; }
+    .svc-card { background:var(--card);padding:28px 24px;transition:background .3s;position:relative;overflow:hidden; }
+    .svc-card::after { content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:0;transition:opacity .3s; }
+    .svc-card:hover { background:#161616; }
+    .svc-card:hover::after { opacity:1; }
+    .svc-icon { width:44px;height:44px;border-radius:12px;background:rgba(128,210,83,.08);border:1px solid rgba(128,210,83,.15);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px; }
+    .svc-num { font-size:10px;font-weight:700;letter-spacing:2px;color:var(--green);opacity:.5;margin-bottom:12px; }
+    .svc-title { font-size:15px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;line-height:1.3; }
+    .svc-desc { font-size:12px;color:var(--muted);line-height:1.65; }
 
-    /* ─── Mobile ─── */
-    @media (max-width: 1024px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .mission-grid, .why-grid, .compare-grid { grid-template-columns: 1fr; gap: 40px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .testi-grid { grid-template-columns: 1fr 1fr; }
-      .bulten-grid { grid-template-columns: 1fr 1fr; }
-      .newsletter-box { grid-template-columns: 1fr; gap: 32px; padding: 40px 28px; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .team-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .bulten-grid { grid-template-columns: 1fr; }
-      .team-grid { grid-template-columns: 1fr 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .cta-box { padding: 60px 24px; }
-      .hero-h1 { letter-spacing: -1.5px; }
-    }
+    /* ─── Why Us ─── */
+    .why-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px; }
+    .why-card { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;transition:all .3s; }
+    .why-card:hover { border-color:rgba(128,210,83,.2);transform:translateY(-2px); }
+    .why-icon { font-size:28px;margin-bottom:16px; }
+    .why-title { font-size:18px;font-weight:700;letter-spacing:-.3px;margin-bottom:10px; }
+    .why-desc { font-size:13px;color:var(--muted);line-height:1.7; }
 
-    /* ─── Mobile nav overlay ─── */
-    .mob-nav {
-      display: none; position: fixed; inset: 0; z-index: 99;
-      background: #0a0a0a; padding: 90px 32px 32px;
-      flex-direction: column; gap: 20px;
+    /* ─── Working Model ─── */
+    .model-grid { display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:48px; }
+    .model-steps { display:flex;flex-direction:column;gap:0; }
+    .model-step { display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--border);position:relative; }
+    .model-step:last-child { border-bottom:none; }
+    .model-step-num { width:36px;height:36px;border-radius:10px;background:rgba(128,210,83,.08);border:1px solid rgba(128,210,83,.2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:var(--green);flex-shrink:0;margin-top:2px; }
+    .model-step-title { font-size:16px;font-weight:700;margin-bottom:6px; }
+    .model-step-desc { font-size:13px;color:var(--muted);line-height:1.65; }
+    .model-right { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:40px;position:sticky;top:100px; }
+    .model-right-tag { font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:16px; }
+    .model-right-title { font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:16px;line-height:1.3; }
+    .model-right p { font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px; }
+    .model-check { display:flex;align-items:center;gap:10px;font-size:13px;margin-bottom:10px; }
+    .model-check-icon { width:20px;height:20px;border-radius:6px;background:rgba(128,210,83,.12);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0; }
+
+    /* ─── Sectors ─── */
+    .sectors-grid { display:grid;grid-template-columns:repeat(9,1fr);gap:12px;margin-top:48px; }
+    .sector-card { background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px 12px;text-align:center;transition:all .3s;cursor:default; }
+    .sector-card:hover { border-color:rgba(128,210,83,.3);background:#161616;transform:translateY(-3px); }
+    .sector-icon { font-size:28px;margin-bottom:10px; }
+    .sector-name { font-size:12px;font-weight:600;color:var(--muted); }
+
+    /* ─── Compare ─── */
+    .compare-grid { display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px; }
+    .compare-col { border-radius:var(--radius);overflow:hidden;border:1px solid var(--border); }
+    .compare-col.ours { border-color:rgba(128,210,83,.3); }
+    .compare-head { padding:20px 28px 16px;font-size:15px;font-weight:700;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px; }
+    .compare-head.ours-head { color:var(--green); }
+    .compare-item { display:flex;align-items:flex-start;gap:12px;padding:14px 28px;font-size:14px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.03); }
+    .compare-item:last-child { border-bottom:none; }
+    .compare-item.ours-item { color:rgba(255,255,255,.85); }
+    .ci-x { color:rgba(255,80,80,.6);font-size:15px;flex-shrink:0; }
+    .ci-check { color:var(--green);font-size:15px;flex-shrink:0; }
+
+    /* ─── Case Studies ─── */
+    .cases-scroll-wrap { overflow:hidden;margin-top:48px;cursor:grab; }
+    .cases-scroll-wrap:active { cursor:grabbing; }
+    .cases-track { display:flex;gap:20px;animation:casesScroll 32s linear infinite;width:max-content; }
+    .cases-track:hover { animation-play-state:paused; }
+    @keyframes casesScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .case-card { width:320px;flex-shrink:0;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s; }
+    .case-card:hover { border-color:rgba(128,210,83,.3); }
+    .case-img { height:180px;display:flex;align-items:center;justify-content:center;font-size:48px; }
+    .case-body { padding:22px; }
+    .case-metrics { display:flex;gap:14px;margin-bottom:14px; }
+    .case-metric { font-size:12px;font-weight:700;color:var(--green); }
+    .case-name { font-size:15px;font-weight:700;margin-bottom:6px; }
+    .case-desc { font-size:12px;color:var(--muted);line-height:1.6; }
+
+    /* ─── Team ─── */
+    .team-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px; }
+    .team-card { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s; }
+    .team-card:hover { border-color:rgba(128,210,83,.3);transform:translateY(-4px); }
+    .team-photo-wrap { overflow:hidden;position:relative; }
+    .team-photo-wrap::after { content:'';position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(to bottom,transparent,var(--card));pointer-events:none; }
+    .team-photo { width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;display:block;transition:transform .4s; }
+    .team-card:hover .team-photo { transform:scale(1.03); }
+    .team-info { padding:20px 20px 22px; }
+    .team-name { font-size:16px;font-weight:700;letter-spacing:-.3px;margin-bottom:4px; }
+    .team-role { font-size:12px;color:var(--green);font-weight:600;margin-bottom:8px; }
+    .team-bio { font-size:12px;color:var(--muted);line-height:1.6; }
+
+    /* ─── Testimonials ─── */
+    .testi-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px; }
+    .testi-card { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color .2s; }
+    .testi-card:hover { border-color:rgba(128,210,83,.2); }
+    .testi-stars { color:var(--green);font-size:13px;margin-bottom:16px;letter-spacing:2px; }
+    .testi-text { font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px; }
+    .testi-author { display:flex;align-items:center;gap:12px; }
+    .testi-avatar { width:40px;height:40px;border-radius:50%;background:rgba(128,210,83,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0; }
+    .testi-name { font-size:14px;font-weight:700; }
+    .testi-role-text { font-size:12px;color:var(--dim); }
+
+    /* ─── FAQ ─── */
+    .faq-list { display:flex;flex-direction:column;gap:10px;margin-top:48px; }
+    .faq-item { background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s; }
+    .faq-item.open { border-color:rgba(128,210,83,.22); }
+    .faq-q { padding:20px 26px;font-size:15px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px; }
+    .faq-icon { width:26px;height:26px;border-radius:50%;flex-shrink:0;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--muted);transition:all .3s; }
+    .faq-item.open .faq-icon { background:rgba(128,210,83,.1);border-color:rgba(128,210,83,.4);color:var(--green);transform:rotate(45deg); }
+    .faq-a { max-height:0;overflow:hidden;transition:max-height .35s ease,padding .2s; }
+    .faq-item.open .faq-a { max-height:300px; }
+    .faq-a-inner { padding:0 26px 20px;font-size:14px;color:var(--muted);line-height:1.7; }
+
+    /* ─── Blog ─── */
+    .blog-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px; }
+    .blog-card { background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .3s; }
+    .blog-card:hover { border-color:rgba(128,210,83,.3);transform:translateY(-4px); }
+    .blog-img { height:170px;display:flex;align-items:center;justify-content:center;font-size:48px;background:var(--card2); }
+    .blog-body { padding:22px; }
+    .blog-cat { font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:10px; }
+    .blog-title { font-size:16px;font-weight:700;line-height:1.35;margin-bottom:10px; }
+    .blog-excerpt { font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:18px; }
+    .blog-footer { display:flex;justify-content:space-between;align-items:center; }
+    .blog-date { font-size:11px;color:var(--dim); }
+    .blog-read { font-size:12px;font-weight:700;color:var(--green); }
+
+    /* ─── Newsletter ─── */
+    .newsletter-box { margin-top:48px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:52px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;overflow:hidden; }
+    .newsletter-box::before { content:'';position:absolute;right:-100px;top:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(128,210,83,.06),transparent 70%);pointer-events:none; }
+    .nl-title { font-size:26px;font-weight:800;letter-spacing:-.5px;margin-bottom:10px; }
+    .nl-sub { font-size:14px;color:var(--muted);line-height:1.65; }
+    .nl-form { display:flex;gap:10px; }
+    .nl-input { flex:1;background:rgba(255,255,255,.06);border:1px solid var(--border2);border-radius:var(--pill);padding:13px 22px;color:#fff;font-size:14px;font-family:inherit;outline:none;transition:border-color .2s; }
+    .nl-input::placeholder { color:rgba(255,255,255,.3); }
+    .nl-input:focus { border-color:var(--green); }
+
+    /* ─── CTA ─── */
+    .cta-box { background:var(--card);border:1px solid rgba(128,210,83,.18);border-radius:28px;padding:100px 60px;text-align:center;position:relative;overflow:hidden; }
+    .cta-box::before { content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(128,210,83,.07),transparent 65%);pointer-events:none; }
+    .cta-title { font-size:clamp(32px,5vw,60px);font-weight:900;letter-spacing:-2px;line-height:1.08;margin-bottom:20px;position:relative;z-index:1; }
+    .cta-sub { font-size:17px;color:var(--muted);margin-bottom:40px;position:relative;z-index:1;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.65; }
+    .cta-btns { display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1; }
+
+    /* ─── Footer ─── */
+    footer { border-top:1px solid var(--border);padding:60px 0 36px; }
+    .footer-top { display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:52px; }
+    .footer-brand-name { font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:14px; }
+    .footer-brand p { font-size:13px;color:var(--muted);line-height:1.7;max-width:240px; }
+    .footer-col h4 { font-size:13px;font-weight:700;color:#fff;margin-bottom:18px; }
+    .footer-col ul { list-style:none;display:flex;flex-direction:column;gap:10px; }
+    .footer-col ul li a { font-size:13px;color:var(--muted);transition:color .2s; }
+    .footer-col ul li a:hover { color:#fff; }
+    .footer-bottom { display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px; }
+    .footer-copy { font-size:13px;color:var(--dim); }
+    .footer-socials { display:flex;gap:8px; }
+    .social-btn { width:34px;height:34px;border-radius:9px;border:1px solid var(--border);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--muted);transition:all .2s;cursor:pointer; }
+    .social-btn:hover { border-color:var(--green);color:var(--green); }
+
+    /* ─── Spotlight ─── */
+    .spotlight-card { position:relative; }
+    .spotlight-card::after { content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(128,210,83,.07),transparent 40%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:1; }
+    .spotlight-card:hover::after { opacity:1; }
+
+    /* ─── Reveal ─── */
+    .reveal { opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease; }
+    .reveal.in { opacity:1;transform:translateY(0); }
+    .reveal-left { opacity:0;transform:translateX(-28px);transition:opacity .65s ease,transform .65s ease; }
+    .reveal-left.in { opacity:1;transform:translateX(0); }
+    .reveal-right { opacity:0;transform:translateX(28px);transition:opacity .65s ease,transform .65s ease; }
+    .reveal-right.in { opacity:1;transform:translateX(0); }
+
+    /* ─── Stats bar ─── */
+    .stats-bar { display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:0; }
+    .stat-item { background:var(--card);padding:32px 24px;text-align:center; }
+    .stat-num { font-size:38px;font-weight:900;letter-spacing:-1.5px;color:#fff; }
+    .stat-label { font-size:13px;color:var(--muted);margin-top:4px; }
+
+    /* ─── Responsive ─── */
+    @media (max-width:1100px) {
+      .services-grid { grid-template-columns:repeat(3,1fr); }
+      .sectors-grid { grid-template-columns:repeat(5,1fr); }
     }
-    .mob-nav.open { display: flex; }
-    .mob-nav a { font-size: 26px; font-weight: 700; color: var(--muted); }
-    .mob-nav a:hover { color: var(--white); }
+    @media (max-width:1024px) {
+      .nav-links { display:none; }
+      .hamburger { display:flex; }
+      .problem-grid,.solution-grid,.why-grid,.testi-grid,.blog-grid,.compare-grid { grid-template-columns:1fr 1fr; }
+      .team-grid { grid-template-columns:1fr 1fr; }
+      .model-grid { grid-template-columns:1fr;gap:40px; }
+      .model-right { position:static; }
+      .footer-top { grid-template-columns:1fr 1fr;gap:40px; }
+      .newsletter-box { grid-template-columns:1fr;gap:32px;padding:40px 28px; }
+    }
+    @media (max-width:640px) {
+      .problem-grid,.solution-grid,.why-grid,.testi-grid,.blog-grid,.compare-grid,.services-grid { grid-template-columns:1fr; }
+      .team-grid { grid-template-columns:1fr 1fr; }
+      .sectors-grid { grid-template-columns:repeat(3,1fr); }
+      .stats-bar { grid-template-columns:1fr 1fr; }
+      .footer-top { grid-template-columns:1fr; }
+      .footer-bottom { flex-direction:column;text-align:center; }
+      .cta-box { padding:60px 24px; }
+      .hero-h1 { letter-spacing:-1.5px; }
+    }
   </style>
 </head>
 <body>
+
 <div class="scroll-progress"><div class="scroll-progress-fill"></div></div>
-<button class="scroll-top" id="scrollTop" title="Yukarı Çık">↑</button>
+<button class="scroll-top" id="scrollTop">↑</button>
 
 <!-- ─── NAV ─── -->
-<nav>
+<nav id="mainNav">
   <div class="nav-logo">
-    <div class="nav-logo-dot"></div>
+    <div class="nav-dot"></div>
     İhracatın Medyası
   </div>
   <ul class="nav-links">
     <li><a href="#hizmetler">Hizmetler</a></li>
-    <li><a href="#projeler">Çalışmalar</a></li>
-    <li><a href="#bultenler">Bültenler</a></li>
+    <li><a href="#sistem">Sistem</a></li>
+    <li><a href="#projeler">Başarılar</a></li>
     <li><a href="#takim">Ekip</a></li>
-    <li><a href="#manifesto">Hakkımızda</a></li>
+    <li><a href="#sss">SSS</a></li>
     <li><a href="#blog">Blog</a></li>
   </ul>
-  <a href="#iletisim" class="btn-nav">İletişim</a>
+  <a href="#iletisim" class="btn-nav">Ücretsiz Analiz</a>
   <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- Mobile nav -->
 <div class="mob-nav" id="mobNav">
   <a href="#hizmetler" onclick="toggleMob()">Hizmetler</a>
-  <a href="#projeler" onclick="toggleMob()">Çalışmalar</a>
-  <a href="#bultenler" onclick="toggleMob()">Bültenler</a>
-  <a href="#manifesto" onclick="toggleMob()">Hakkımızda</a>
-  <a href="#iletisim" onclick="toggleMob()" class="btn-green" style="text-align:center;margin-top:8px;">İletişim</a>
+  <a href="#sistem" onclick="toggleMob()">Sistem</a>
+  <a href="#projeler" onclick="toggleMob()">Başarılar</a>
+  <a href="#takim" onclick="toggleMob()">Ekip</a>
+  <a href="#sss" onclick="toggleMob()">SSS</a>
+  <a href="#iletisim" onclick="toggleMob()" class="btn-green" style="text-align:center;margin-top:8px;">Ücretsiz Analiz</a>
 </div>
 
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <!-- Animated gradient orbs -->
   <div class="hero-orbs">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
   </div>
 
-  <div class="hero-badge" style="position:relative;z-index:2;">
-    <span class="hero-badge-green">İhracatın Medyası</span>
-    &nbsp;— Türkiye'nin İhracat Ekosistemi
-  </div>
+  <div class="hero-badge">Ajans Değil — Şirketinizin Dış Ticaret Departmanı</div>
 
-  <h1 class="hero-h1" style="position:relative;z-index:2;">
-    Küresel İş<br />
-    <span class="hero-glow">Geliştirme Ortağınız.</span>
+  <h1 class="hero-h1">
+    İhracat Departmanınızı<br />
+    <span class="hero-glow">Sıfırdan Kuruyoruz.</span>
   </h1>
 
-  <p class="hero-sub typewriter-target" style="position:relative;z-index:2;">
-    320+ firmanın güvendiği ihracat ekosistemi. Veri odaklı strateji, güçlü ağ ve saha deneyimiyle global büyümenizi hızlandırıyoruz.
+  <p class="hero-sub typewriter-target">
+    Strateji, pazarlama, müşteri bulma ve operasyonu tek çatı altında yönetiyoruz. Siz üretmeye odaklanın, dünyaya açılmayı bize bırakın.
   </p>
 
-  <!-- Floating stat cards -->
+  <div class="hero-btns">
+    <a href="#iletisim" class="btn-green btn-magnetic">Hemen Teklif Al</a>
+    <a href="#sistem" class="btn-glass btn-magnetic">Sistemi İncele</a>
+  </div>
+
   <div class="hero-floats">
     <div class="hero-float">
       <div class="hero-float-num"><span data-count="320" data-suffix="+">320+</span></div>
       <div class="hero-float-label">Başarılı Proje</div>
+    </div>
+    <div class="hero-float">
+      <div class="hero-float-num"><span data-count="48">48</span></div>
+      <div class="hero-float-label">Hedef Pazar</div>
     </div>
     <div class="hero-float">
       <div class="hero-float-num"><span data-count="94" data-prefix="%">%94</span></div>
@@ -830,345 +418,519 @@
       <div class="hero-float-num"><span data-count="15" data-suffix="+">15+</span></div>
       <div class="hero-float-label">Yıllık Deneyim</div>
     </div>
-    <div class="hero-float">
-      <div class="hero-float-num"><span data-count="48">48</span></div>
-      <div class="hero-float-label">Hedef Pazar</div>
-    </div>
   </div>
 
-  <div class="hero-btns" style="position:relative;z-index:2;">
-    <a href="#iletisim" class="btn-green btn-magnetic">Ücretsiz Danışmanlık Al</a>
-    <a href="#hizmetler" class="btn-glass btn-magnetic">Daha Fazla Öğren</a>
-  </div>
-
-  <!-- Ticker -->
   <div class="ticker-wrap">
     <div class="ticker-track">
-      <!-- Set 1 -->
-      <div class="ticker-item"><span class="ticker-sep"></span> Büyümeniz, <strong>Bizim Misyonumuz</strong></div>
-      <div class="ticker-item"><span class="ticker-sep"></span> <strong>+%65</strong> İhracat Artışı</div>
+      <div class="ticker-item"><span class="ticker-sep"></span> <strong>Ajans Değil</strong> — Şirketinizin Departmanı</div>
       <div class="ticker-item"><span class="ticker-sep"></span> <strong>320+</strong> Başarılı Proje</div>
-      <div class="ticker-item"><span class="ticker-sep"></span> Büyümeniz, <strong>Bizim Misyonumuz</strong></div>
       <div class="ticker-item"><span class="ticker-sep"></span> <strong>48</strong> Hedef Pazar</div>
-      <div class="ticker-item"><span class="ticker-sep"></span> <strong>₺2.1M+</strong> Teşvik Kazandırıldı</div>
       <div class="ticker-item"><span class="ticker-sep"></span> <strong>%94</strong> Müşteri Memnuniyeti</div>
-      <div class="ticker-item"><span class="ticker-sep"></span> Büyümeniz, <strong>Bizim Misyonumuz</strong></div>
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <div class="ticker-item"><span class="ticker-sep"></span> Büyümeniz, <strong>Bizim Misyonumuz</strong></div>
-      <div class="ticker-item"><span class="ticker-sep"></span> <strong>+%65</strong> İhracat Artışı</div>
+      <div class="ticker-item"><span class="ticker-sep"></span> <strong>₺2.1M+</strong> Kazandırılan Teşvik</div>
+      <div class="ticker-item"><span class="ticker-sep"></span> Strateji · Pazarlama · <strong>Operasyon</strong></div>
+      <div class="ticker-item"><span class="ticker-sep"></span> <strong>Ajans Değil</strong> — Şirketinizin Departmanı</div>
       <div class="ticker-item"><span class="ticker-sep"></span> <strong>320+</strong> Başarılı Proje</div>
-      <div class="ticker-item"><span class="ticker-sep"></span> Büyümeniz, <strong>Bizim Misyonumuz</strong></div>
       <div class="ticker-item"><span class="ticker-sep"></span> <strong>48</strong> Hedef Pazar</div>
-      <div class="ticker-item"><span class="ticker-sep"></span> <strong>₺2.1M+</strong> Teşvik Kazandırıldı</div>
       <div class="ticker-item"><span class="ticker-sep"></span> <strong>%94</strong> Müşteri Memnuniyeti</div>
-      <div class="ticker-item"><span class="ticker-sep"></span> Büyümeniz, <strong>Bizim Misyonumuz</strong></div>
+      <div class="ticker-item"><span class="ticker-sep"></span> <strong>₺2.1M+</strong> Kazandırılan Teşvik</div>
+      <div class="ticker-item"><span class="ticker-sep"></span> Strateji · Pazarlama · <strong>Operasyon</strong></div>
     </div>
   </div>
 </section>
 
-<!-- ─── MISSION ─── -->
-<section class="section" id="manifesto">
+<!-- ─── STATS BAR ─── -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-num"><span data-count="320" data-suffix="+">320+</span></div>
+    <div class="stat-label">Tamamlanan Proje</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num"><span data-count="48">48</span></div>
+    <div class="stat-label">Hedef Pazar Ülkesi</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num"><span data-count="94" data-prefix="%">%94</span></div>
+    <div class="stat-label">Müşteri Memnuniyeti</div>
+  </div>
+  <div class="stat-item reveal">
+    <div class="stat-num">₺2.1M+</div>
+    <div class="stat-label">Kazandırılan Teşvik</div>
+  </div>
+</div>
+
+<!-- ─── PROBLEM ─── -->
+<section class="section">
   <div class="container">
-    <div class="mission-grid reveal">
-      <div class="mission-left">
-        <div class="section-label">Misyonumuz</div>
-        <h2 class="section-h2">İhracatın Medyası<br />gerçek sonuçlar üretir.</h2>
-        <p>İhracatçıyı yalnız bırakmıyoruz. Veri odaklı stratejiler, saha deneyimi ve güçlü bir ağla işinizi global ölçekte büyütüyoruz. Sadece danışmanlık değil; ortaklık.</p>
-        <div class="mission-stats">
-          <div class="mstat">
-            <div class="mstat-num" data-count="15" data-suffix="+">15+</div>
-            <div class="mstat-label">Yıllık Deneyim</div>
-          </div>
-          <div class="mstat">
-            <div class="mstat-num" data-count="94" data-prefix="%">%94</div>
-            <div class="mstat-label">Müşteri Memnuniyeti</div>
-          </div>
-          <div class="mstat">
-            <div class="mstat-num" data-count="320" data-suffix="+">320+</div>
-            <div class="mstat-label">Tamamlanan Proje</div>
-          </div>
-          <div class="mstat">
-            <div class="mstat-num">₺2.1M</div>
-            <div class="mstat-label">Kazandırılan Teşvik</div>
-          </div>
-        </div>
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label section-label-center">Neden Büyüyemiyorsunuz</div>
+      <h2 class="section-h2">İhracatta Büyüyemeyen Firmaların<br />Ortak 6 Sorunu</h2>
+      <p class="section-sub" style="margin:12px auto 0;">Bu sorunlardan birini bile yaşıyorsanız, tek başınıza ihracat yapmak size zaman ve kaynak kaybettirir.</p>
+    </div>
+    <div class="problem-grid reveal">
+      <div class="problem-card">
+        <div class="problem-x">✗</div>
+        <div class="problem-icon">🧭</div>
+        <div class="problem-title">Nereden Başlayacağını Bilmiyor</div>
+        <p class="problem-desc">İhracat sürecinin karmaşıklığı karşısında ilk adımı atmak mümkün olmuyor. Yanlış pazar seçimi, büyük kayıplara neden oluyor.</p>
       </div>
-      <div class="mission-right">
-        <div class="mission-right-tag">İçimizden Süreç</div>
-        <div class="mission-right-title">Büyüme Odaklı —<br />KPI'larla gerçek ilerleme.</div>
-        <p>Her proje için net hedefler belirliyor, ölçülüyor ve raporluyoruz. Soyut vaatler değil, rakamlarla kanıtlanan başarı.</p>
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="step-icon">🔭</div>
-            <div>
-              <div class="step-text">Durum Analizi</div>
-              <div class="step-sub">İhracat hazırlık skoru ve pazar araştırması</div>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-icon">🗺️</div>
-            <div>
-              <div class="step-text">Strateji ve Yol Haritası</div>
-              <div class="step-sub">Hedefe özel 12 aylık eylem planı</div>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-icon">🚀</div>
-            <div>
-              <div class="step-text">Uygulama ve Büyüme</div>
-              <div class="step-sub">Saha desteği, teşvik ve alıcı bağlantısı</div>
-            </div>
-          </div>
-        </div>
+      <div class="problem-card">
+        <div class="problem-x">✗</div>
+        <div class="problem-icon">🔍</div>
+        <div class="problem-title">Yurt Dışı Müşteri Bulamıyor</div>
+        <p class="problem-desc">Fuarlara para harcıyor, cold email gönderiyor ama dönüşüm yok. Doğru alıcıya ulaşmanın sistematik bir yolu bilinmiyor.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-x">✗</div>
+        <div class="problem-icon">⚙️</div>
+        <div class="problem-title">Operasyonu Yönetemiyor</div>
+        <p class="problem-desc">Gümrük, lojistik, dokümantasyon ve ödeme süreçleri hem zaman alıyor hem de uzmanlık gerektiriyor.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-x">✗</div>
+        <div class="problem-icon">🏛️</div>
+        <div class="problem-title">Teşviklerden Haberi Yok</div>
+        <p class="problem-desc">KOSGEB, TİM, Eximbank ve onlarca devlet desteğinden habersiz firmalar, hak ettikleri finansmandan yararlanamıyor.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-x">✗</div>
+        <div class="problem-icon">💰</div>
+        <div class="problem-title">Finansman Bulamıyor</div>
+        <p class="problem-desc">İhracat için gerekli nakit akışını yönetmek, Eximbank kredilerinden yararlanmak karmaşık ve zaman alıcı.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-x">✗</div>
+        <div class="problem-icon">📢</div>
+        <div class="problem-title">Global Pazarlama Yapamıyor</div>
+        <p class="problem-desc">Yabancı dilde içerik, dijital reklam, fuar yönetimi ve marka konumlandırması ayrı bir uzmanlık ve bütçe istiyor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOLUTION ─── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label section-label-center">Çözüm</div>
+      <h2 class="section-h2">Şirketinizin Dış Ticaret Departmanı<br />Artık Burada.</h2>
+      <p class="section-sub" style="margin:12px auto 0;">İhracat sürecinin her adımını sizin adınıza kuruyoruz, yönetiyoruz, büyütüyoruz.</p>
+    </div>
+    <div class="solution-grid reveal">
+      <div class="solution-card">
+        <div class="solution-num">01</div>
+        <div class="solution-title">Tek Ekip</div>
+        <p class="solution-desc">Strateji uzmanından pazarlamacıya, operasyon yöneticisinden teşvik danışmanına — ihtiyacınız olan tüm uzmanlar tek çatı altında.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-num">02</div>
+        <div class="solution-title">Tek Sistem</div>
+        <p class="solution-desc">CRM, lead generation, müşteri takibi ve raporlama — hepsi birbiriyle entegre çalışan bir ihracat işletim sistemiyle yönetilir.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-num">03</div>
+        <div class="solution-title">Tek Süreç</div>
+        <p class="solution-desc">Analizden operasyona, finansmandan büyümeye kadar kesintisiz, şeffaf ve ölçülebilir bir süreç. Sonuçları birlikte izliyoruz.</p>
+      </div>
+    </div>
+
+    <!-- Compare -->
+    <div class="compare-grid reveal" style="margin-top:32px;">
+      <div class="compare-col" style="background:var(--card2);">
+        <div class="compare-head"><span style="color:rgba(255,80,80,.7);">✗</span> Diğer Yaklaşımlar</div>
+        <div class="compare-item"><span class="ci-x">✗</span> Sizi anlayan biri yok — herkese aynı şablon</div>
+        <div class="compare-item"><span class="ci-x">✗</span> Ajans biter, siz kalırsınız — süreklilik yok</div>
+        <div class="compare-item"><span class="ci-x">✗</span> Sadece danışmanlık, uygulama size kalır</div>
+        <div class="compare-item"><span class="ci-x">✗</span> Sonuçlar ölçülmez, raporlama belirsiz</div>
+        <div class="compare-item"><span class="ci-x">✗</span> Teşvik ve finansmandan haberdar değiller</div>
+      </div>
+      <div class="compare-col ours" style="background:var(--card);">
+        <div class="compare-head ours-head"><span>✓</span> İhracatın Medyası</div>
+        <div class="compare-item ours-item"><span class="ci-check">✓</span> Sektörünüze özel, veriye dayalı strateji</div>
+        <div class="compare-item ours-item"><span class="ci-check">✓</span> Uzun vadeli ortaklık — departmanınız gibi çalışıyoruz</div>
+        <div class="compare-item ours-item"><span class="ci-check">✓</span> Stratejiyi biz kurar, operasyonu biz yürütürüz</div>
+        <div class="compare-item ours-item"><span class="ci-check">✓</span> Haftalık KPI raporu, şeffaf büyüme takibi</div>
+        <div class="compare-item ours-item"><span class="ci-check">✓</span> %91 teşvik onay oranı, tam finansman desteği</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── EXPORT OS ─── -->
+<section class="section" id="sistem">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Export Operating System™</div>
+      <h2 class="section-h2">İhracat Sürecinin<br />8 Adımlı Sistemi</h2>
+      <p class="section-sub">Stratejiden global büyümeye — her adımı sizin için tasarlanmış, uçtan uca bir ihracat işletim sistemi.</p>
+    </div>
+    <div class="eos-flow reveal">
+      <div class="eos-step">
+        <div class="eos-num">01</div>
+        <div class="eos-icon">🎯</div>
+        <div class="eos-name">Strateji</div>
+      </div>
+      <div class="eos-arrow">→</div>
+      <div class="eos-step">
+        <div class="eos-num">02</div>
+        <div class="eos-icon">📢</div>
+        <div class="eos-name">Pazarlama</div>
+      </div>
+      <div class="eos-arrow">→</div>
+      <div class="eos-step">
+        <div class="eos-num">03</div>
+        <div class="eos-icon">⚡</div>
+        <div class="eos-name">Lead Generation</div>
+      </div>
+      <div class="eos-arrow">→</div>
+      <div class="eos-step">
+        <div class="eos-num">04</div>
+        <div class="eos-icon">🤝</div>
+        <div class="eos-name">Satış</div>
+      </div>
+      <div class="eos-arrow">→</div>
+      <div class="eos-step">
+        <div class="eos-num">05</div>
+        <div class="eos-icon">📦</div>
+        <div class="eos-name">Operasyon</div>
+      </div>
+      <div class="eos-arrow">→</div>
+      <div class="eos-step">
+        <div class="eos-num">06</div>
+        <div class="eos-icon">💰</div>
+        <div class="eos-name">Finans</div>
+      </div>
+      <div class="eos-arrow">→</div>
+      <div class="eos-step">
+        <div class="eos-num">07</div>
+        <div class="eos-icon">🏛️</div>
+        <div class="eos-name">Teşvik</div>
+      </div>
+      <div class="eos-arrow">→</div>
+      <div class="eos-step">
+        <div class="eos-num">08</div>
+        <div class="eos-icon">🌍</div>
+        <div class="eos-name">Global Büyüme</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ─── SERVICES ─── -->
-<section class="section" id="hizmetler" style="background:var(--card);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);">
+<section class="section section-alt" id="hizmetler">
   <div class="container">
-    <div class="services-header reveal">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:0;">
       <div>
-        <div class="section-label">Sunduklarımız</div>
-        <h2 class="section-h2">İşiniz için kapsamlı<br />çözümler.</h2>
+        <div class="section-label">Hizmetlerimiz</div>
+        <h2 class="section-h2">İhracatın Her Adımı<br />Bizde.</h2>
       </div>
-      <p style="color:var(--muted);font-size:15px;max-width:340px;line-height:1.65;">Tek çatı altında tüm danışmanlık ihtiyaçlarınız. Pazarlama'dan teşvike, operasyondan İK'ya.</p>
+      <p style="color:var(--muted);font-size:15px;max-width:320px;line-height:1.65;">Tek bir partner, 15 farklı uzmanlık alanı. İhtiyacınız olan her şey burada.</p>
     </div>
     <div class="services-grid reveal">
-
       <div class="svc-card">
         <div class="svc-num">01</div>
-        <div class="svc-title">Marketing</div>
-        <p class="svc-desc">Hedef pazarınıza özel dijital ve geleneksel pazarlama stratejileri. Marka konumlandırması, B2B içerik ve uluslararası kampanya yönetimi.</p>
-        <div class="svc-arrow">→</div>
+        <div class="svc-icon">🎯</div>
+        <div class="svc-title">İhracat Stratejisi</div>
+        <p class="svc-desc">Sektörünüze ve ürününüze özel pazar araştırması, rekabet analizi ve 12 aylık ihracat yol haritası.</p>
       </div>
-
       <div class="svc-card">
         <div class="svc-num">02</div>
-        <div class="svc-title">Operasyon Danışmanlığı</div>
-        <p class="svc-desc">Tedarik zinciri optimizasyonu, süreç iyileştirme ve lojistik yönetimi. Operasyonunuzu ölçeklenebilir ve kârlı hale getiriyoruz.</p>
-        <div class="svc-arrow">→</div>
+        <div class="svc-icon">🌍</div>
+        <div class="svc-title">Global Pazarlama</div>
+        <p class="svc-desc">Uluslararası marka konumlandırması, dijital pazarlama, B2B içerik ve fuar yönetimi.</p>
       </div>
-
       <div class="svc-card">
         <div class="svc-num">03</div>
-        <div class="svc-title">İthalat & İhracat Danışmanlığı</div>
-        <p class="svc-desc">Gümrük mevzuatı, pazar araştırması, alıcı-satıcı eşleştirme ve uluslararası ticaret süreçlerinde uçtan uca rehberlik.</p>
-        <div class="svc-arrow">→</div>
+        <div class="svc-icon">⚡</div>
+        <div class="svc-title">AI ile Müşteri Bulma</div>
+        <p class="svc-desc">Yapay zeka destekli alıcı ve distribütör tespiti, kişiselleştirilmiş outreach kampanyaları.</p>
       </div>
-
       <div class="svc-card">
         <div class="svc-num">04</div>
-        <div class="svc-title">Teşvik Danışmanlığı</div>
-        <p class="svc-desc">KOSGEB, TİM, Eximbank ve devlet teşviklerini maksimize ediyoruz. Başvuru, takip ve raporlamada eksiksiz destek.</p>
-        <div class="svc-arrow">→</div>
+        <div class="svc-icon">📊</div>
+        <div class="svc-title">CRM ve Satış Yönetimi</div>
+        <p class="svc-desc">CRM kurulumu, satış pipeline yönetimi, müşteri takibi ve performans raporlaması.</p>
       </div>
-
       <div class="svc-card">
         <div class="svc-num">05</div>
-        <div class="svc-title">İnsan Kaynakları Danışmanlığı</div>
-        <p class="svc-desc">İhracat odaklı organizasyon tasarımı, yetenek kazanımı ve uluslararası operasyon için doğru ekibi kurmanın yol haritası.</p>
-        <div class="svc-arrow">→</div>
+        <div class="svc-icon">🏢</div>
+        <div class="svc-title">Şirket Kuruluşu</div>
+        <p class="sss-desc">Hedef pazarda yasal yapılanma, şube veya temsilcilik kurulumu, yerel partner ağı oluşturma.</p>
       </div>
-
       <div class="svc-card">
         <div class="svc-num">06</div>
-        <div class="svc-title">Stratejik Planlama</div>
-        <p class="svc-desc">Uzun vadeli büyüme planlaması, yatırımcı hazırlığı ve çok pazarlı genişleme stratejileri. Geleceği bugünden tasarlıyoruz.</p>
-        <div class="svc-arrow">→</div>
+        <div class="svc-icon">📦</div>
+        <div class="svc-title">İthalat / İhracat Operasyonu</div>
+        <p class="svc-desc">Gümrük mevzuatı, dokümantasyon, alıcı-satıcı eşleştirme ve uçtan uca ticaret yönetimi.</p>
       </div>
-
+      <div class="svc-card">
+        <div class="svc-num">07</div>
+        <div class="svc-icon">🚚</div>
+        <div class="svc-title">Lojistik Yönetimi</div>
+        <p class="svc-desc">Tedarik zinciri optimizasyonu, taşıyıcı müzakereleri, sigorta ve teslimat takibi.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">08</div>
+        <div class="svc-icon">💳</div>
+        <div class="svc-title">Finansman</div>
+        <p class="svc-desc">Eximbank kredileri, akreditif yönetimi, ihracat finansmanı ve nakit akışı optimizasyonu.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">09</div>
+        <div class="svc-icon">🏛️</div>
+        <div class="svc-title">Teşvik Danışmanlığı</div>
+        <p class="svc-desc">KOSGEB, TİM, Eximbank ve tüm devlet desteklerinde başvuru, takip ve raporlama.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">10</div>
+        <div class="svc-icon">🤖</div>
+        <div class="svc-title">Yapay Zeka Otomasyonları</div>
+        <p class="svc-desc">Satış süreçlerinde AI entegrasyonu, otomatik lead scoring, müşteri iletişim otomasyonları.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── WHY / PROCESS ─── -->
-<section class="section why-section" id="neden">
+<!-- ─── WHY US ─── -->
+<section class="section">
   <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label section-label-center">Neden Biz</div>
+      <h2 class="section-h2">İhracatta Gerçek Fark<br />Nasıl Yaratılır?</h2>
+    </div>
     <div class="why-grid reveal">
-      <div class="why-left">
-        <div class="section-label">Neden Doğru Tercih</div>
-        <h2 class="section-h2">Etkili stratejiler,<br />gerçek sonuçlar üretiyoruz.</h2>
-        <p>Marka konumlandırmasından alıcı bağlantısına, içerikten teşvike — her adımda ölçülebilir büyüme sağlıyoruz.</p>
-        <div class="why-marquee-wrap">
-          <div class="why-marquee">
-            <!-- set 1 -->
-            <span class="why-badge active">Büyüme Odaklı</span>
-            <span class="why-badge">KPI Bazlı İlerleme</span>
-            <span class="why-badge active">Şeffaf İletişim</span>
-            <span class="why-badge">Uzman Ağı</span>
-            <span class="why-badge active">Hızlı Teslimat</span>
-            <span class="why-badge">Teşvik Optimizasyonu</span>
-            <span class="why-badge active">Uzun Vadeli Destek</span>
-            <!-- set 2 -->
-            <span class="why-badge active">Büyüme Odaklı</span>
-            <span class="why-badge">KPI Bazlı İlerleme</span>
-            <span class="why-badge active">Şeffaf İletişim</span>
-            <span class="why-badge">Uzman Ağı</span>
-            <span class="why-badge active">Hızlı Teslimat</span>
-            <span class="why-badge">Teşvik Optimizasyonu</span>
-            <span class="why-badge active">Uzun Vadeli Destek</span>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Tek Noktadan Çözüm</div>
+        <p class="why-desc">15 farklı hizmet alanında tek bir partner. Koordinasyon sorunu yok, kaynak israfı yok.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">👥</div>
+        <div class="why-title">Sektör Uzmanı Ekip</div>
+        <p class="why-desc">Her sektör için özel deneyime sahip uzmanlardan oluşan ekibimiz sizin dilini konuşur.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤖</div>
+        <div class="why-title">Teknoloji Altyapısı</div>
+        <p class="why-desc">AI destekli müşteri bulma, CRM otomasyonları ve veri analitiği ile rakiplerinizin önünde olun.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <div class="why-title">Şeffaf Raporlama</div>
+        <p class="why-desc">Haftalık KPI raporları, aylık strateji toplantıları. Neyin işe yarayıp neyin yaramadığını birlikte görüyoruz.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📈</div>
+        <div class="why-title">Performans Odaklı</div>
+        <p class="why-desc">Sonuç getirmeyen iş yapmıyoruz. Her aktivite ölçülür, optimize edilir ve büyümeye dönüştürülür.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌍</div>
+        <div class="why-title">Uluslararası Deneyim</div>
+        <p class="why-desc">48 ülkede aktif alıcı ve distribütör ağı. Pazar dinamiklerini ve yerel gereklilikleri biliyoruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WORKING MODEL ─── -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="model-grid reveal">
+      <div>
+        <div class="section-label">Çalışma Modelimiz</div>
+        <h2 class="section-h2">Nasıl Çalışıyoruz?</h2>
+        <p class="section-sub" style="margin-top:12px;">İlk görüşmeden global büyümeye — 7 adımda şirketinizin ihracat yolculuğu.</p>
+        <div class="model-steps" style="margin-top:36px;">
+          <div class="model-step">
+            <div class="model-step-num">01</div>
+            <div>
+              <div class="model-step-title">Analiz</div>
+              <p class="model-step-desc">Şirketinizi, ürününüzü ve mevcut ihracat kapasitesini değerlendiriyoruz. İhracat hazırlık skorunuzu çıkarıyoruz.</p>
+            </div>
+          </div>
+          <div class="model-step">
+            <div class="model-step-num">02</div>
+            <div>
+              <div class="model-step-title">Planlama</div>
+              <p class="model-step-desc">Hedef pazar seçimi, fiyatlama, marka konumlandırması ve 12 aylık eylem planı oluşturuyoruz.</p>
+            </div>
+          </div>
+          <div class="model-step">
+            <div class="model-step-num">03</div>
+            <div>
+              <div class="model-step-title">Kurulum</div>
+              <p class="model-step-desc">CRM, pazarlama altyapısı, yasal yapılanma ve operasyonel süreçleri kuruyoruz.</p>
+            </div>
+          </div>
+          <div class="model-step">
+            <div class="model-step-num">04</div>
+            <div>
+              <div class="model-step-title">Müşteri Bulma</div>
+              <p class="model-step-desc">AI destekli lead generation, outreach kampanyaları ve alıcı/distribütör eşleştirmesi yapıyoruz.</p>
+            </div>
+          </div>
+          <div class="model-step">
+            <div class="model-step-num">05</div>
+            <div>
+              <div class="model-step-title">Satış</div>
+              <p class="model-step-desc">Müşteri görüşmeleri, teklif yönetimi, müzakere desteği ve sözleşme süreçlerini yürütüyoruz.</p>
+            </div>
+          </div>
+          <div class="model-step">
+            <div class="model-step-num">06</div>
+            <div>
+              <div class="model-step-title">Operasyon</div>
+              <p class="model-step-desc">Lojistik, gümrük, finansman ve teşvik süreçlerini eksiksiz yönetiyoruz.</p>
+            </div>
+          </div>
+          <div class="model-step">
+            <div class="model-step-num">07</div>
+            <div>
+              <div class="model-step-title">Büyüme</div>
+              <p class="model-step-desc">Sonuçları analiz ediyor, yeni pazarlara açılıyor ve ihracat hacminizi sistematik olarak büyütüyoruz.</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="why-stats">
-        <div class="wstat">
-          <div class="wstat-num" data-count="15" data-suffix="+">15+</div>
-          <div class="wstat-label">Yıllık Sektör Deneyimi</div>
-        </div>
-        <div class="wstat">
-          <div class="wstat-num" data-count="94" data-prefix="%">%94</div>
-          <div class="wstat-label">Müşteri Memnuniyet Oranı</div>
-        </div>
-        <div class="wstat">
-          <div class="wstat-num" data-count="320" data-suffix="+">320+</div>
-          <div class="wstat-label">Başarıyla Tamamlanan Proje</div>
-        </div>
-        <div class="wstat">
-          <div class="wstat-num">₺2.1M+</div>
-          <div class="wstat-label">Müşterilere Kazandırılan Teşvik</div>
-        </div>
+      <div class="model-right">
+        <div class="model-right-tag">Neden Departman Mantığı?</div>
+        <div class="model-right-title">Kendi İhracat Departmanınızı Kurmak İsteseydiniz Ne Kadar Sürerdi?</div>
+        <p>Uzman personel bulmak, eğitmek, sistemi kurmak ve süreci öğrenmek en az 2-3 yıl alır. Biz bunu sizin için 30 günde hazır hale getiriyoruz.</p>
+        <div class="model-check"><div class="model-check-icon">✓</div> Hazır uzman ekip, sıfır işe alım maliyeti</div>
+        <div class="model-check"><div class="model-check-icon">✓</div> Kurulu sistemler, sıfır setup süresi</div>
+        <div class="model-check"><div class="model-check-icon">✓</div> 15+ yıllık deneyim, sıfır öğrenme eğrisi</div>
+        <div class="model-check"><div class="model-check-icon">✓</div> Haftalık raporlama ve şeffaf KPI takibi</div>
+        <div class="model-check"><div class="model-check-icon">✓</div> İstediğinizde genişletilebilir, ölçeklenebilir</div>
+        <a href="#iletisim" class="btn-green" style="display:block;text-align:center;margin-top:28px;">Ücretsiz Analiz Al</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SECTORS ─── -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-label section-label-center">Sektörler</div>
+      <h2 class="section-h2">Hangi Sektörde Olursanız Olun<br />Yanınızdayız.</h2>
+    </div>
+    <div class="sectors-grid reveal">
+      <div class="sector-card">
+        <div class="sector-icon">🪑</div>
+        <div class="sector-name">Mobilya</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🌾</div>
+        <div class="sector-name">Gıda</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">👗</div>
+        <div class="sector-name">Tekstil</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">⚙️</div>
+        <div class="sector-name">Makine</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏥</div>
+        <div class="sector-name">Medikal</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🦷</div>
+        <div class="sector-name">Dental</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🧪</div>
+        <div class="sector-name">Kimya</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">💻</div>
+        <div class="sector-name">Teknoloji</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏗️</div>
+        <div class="sector-name">İnşaat</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ─── CASE STUDIES ─── -->
-<section class="section" id="projeler">
+<section class="section section-alt" id="projeler">
   <div class="container reveal">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:0;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
       <div>
         <div class="section-label">Başarı Hikayeleri</div>
-        <h2 class="section-h2">Görebileceğiniz<br />başarılar.</h2>
+        <h2 class="section-h2">Gerçek Projeler,<br />Gerçek Sonuçlar.</h2>
       </div>
-      <p style="color:var(--muted);font-size:14px;max-width:300px;line-height:1.6;">Gerçek projelerden, gerçek sonuçlar. En etkili vakalarımıza bir bakış.</p>
+      <p style="color:var(--muted);font-size:14px;max-width:280px;line-height:1.6;">Çalıştığımız firmaların ihracat dönüşüm hikayeleri.</p>
     </div>
   </div>
-  <div class="cases-scroll-wrap">
+  <div class="cases-scroll-wrap" style="margin-top:48px;">
     <div class="cases-track">
-      <!-- Set 1 -->
       <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#001a1f,#003040);">🌍</div></div>
+        <div class="case-img" style="background:linear-gradient(135deg,#001a1f,#003040);">🌍</div>
         <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">%70 Ciro Artışı</span>
-            <span class="case-metric">%85 Yeni Pazar</span>
-          </div>
+          <div class="case-metrics"><span class="case-metric">%210 Ciro Artışı</span><span class="case-metric">3 Yeni Ülke</span></div>
           <div class="case-name">Körfez Tekstil İhracatı</div>
-          <p class="case-desc">BAE ve Suudi pazarına giriş stratejisi ve alıcı eşleştirmesiyle 14 ayda ihracat hacmi 3x'e çıktı.</p>
+          <p class="case-desc">BAE ve Suudi pazarına giriş stratejisiyle 14 ayda ihracat hacmi 3x'e çıktı.</p>
         </div>
       </div>
       <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#001a10,#003020);">💰</div></div>
+        <div class="case-img" style="background:linear-gradient(135deg,#001a10,#003020);">💰</div>
         <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">₺1.2M Teşvik</span>
-            <span class="case-metric">%65 Maliyet Azalması</span>
-          </div>
+          <div class="case-metrics"><span class="case-metric">₺1.2M Teşvik</span><span class="case-metric">%91 Onay</span></div>
           <div class="case-name">Teşvik Optimizasyonu</div>
-          <p class="case-desc">KOSGEB + TİM teşvikleri birleştirilerek bir makine firması için 1.2M TL hibe ve destek sağlandı.</p>
+          <p class="case-desc">KOSGEB + TİM teşvikleri birleştirilerek makine firması için 1.2M TL destek sağlandı.</p>
         </div>
       </div>
       <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#1a1000,#302000);">📦</div></div>
+        <div class="case-img" style="background:linear-gradient(135deg,#1a1000,#302000);">🚀</div>
         <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">%75 Lojistik Tasarrufu</span>
-            <span class="case-metric">%88 Teslimat Hızı</span>
-          </div>
-          <div class="case-name">Operasyon Dönüşümü</div>
-          <p class="case-desc">Tedarik zinciri yeniden tasarlandı. Teslimat süresi 21 günden 8 güne indi, maliyet %30 azaldı.</p>
-        </div>
-      </div>
-      <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#0a001a,#1a0030);">🚀</div></div>
-        <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">%70 Marka Bilinirliği</span>
-            <span class="case-metric">%75 Lead Artışı</span>
-          </div>
+          <div class="case-metrics"><span class="case-metric">5x Lead Artışı</span><span class="case-metric">5 Ülke</span></div>
           <div class="case-name">Avrupa Pazar Girişi</div>
-          <p class="case-desc">Almanya ve Hollanda'da dijital pazarlama ve fuarcılık stratejisiyle B2B lead hacmi 5x arttı.</p>
+          <p class="case-desc">Almanya ve Hollanda'da B2B dijital strateji ile lead hacmi 5x arttı.</p>
         </div>
       </div>
-      <!-- Set 2 duplicate -->
       <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#001a1f,#003040);">🌍</div></div>
+        <div class="case-img" style="background:linear-gradient(135deg,#0a001a,#1a0030);">📦</div>
         <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">%70 Ciro Artışı</span>
-            <span class="case-metric">%85 Yeni Pazar</span>
-          </div>
+          <div class="case-metrics"><span class="case-metric">%75 Maliyet Azalması</span><span class="case-metric">8 Gün</span></div>
+          <div class="case-name">Operasyon Dönüşümü</div>
+          <p class="case-desc">Tedarik zinciri yeniden tasarlandı, teslimat süresi 21 günden 8 güne indi.</p>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-img" style="background:linear-gradient(135deg,#001a1f,#003040);">🌍</div>
+        <div class="case-body">
+          <div class="case-metrics"><span class="case-metric">%210 Ciro Artışı</span><span class="case-metric">3 Yeni Ülke</span></div>
           <div class="case-name">Körfez Tekstil İhracatı</div>
-          <p class="case-desc">BAE ve Suudi pazarına giriş stratejisi ve alıcı eşleştirmesiyle 14 ayda ihracat hacmi 3x'e çıktı.</p>
+          <p class="case-desc">BAE ve Suudi pazarına giriş stratejisiyle 14 ayda ihracat hacmi 3x'e çıktı.</p>
         </div>
       </div>
       <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#001a10,#003020);">💰</div></div>
+        <div class="case-img" style="background:linear-gradient(135deg,#001a10,#003020);">💰</div>
         <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">₺1.2M Teşvik</span>
-            <span class="case-metric">%65 Maliyet Azalması</span>
-          </div>
+          <div class="case-metrics"><span class="case-metric">₺1.2M Teşvik</span><span class="case-metric">%91 Onay</span></div>
           <div class="case-name">Teşvik Optimizasyonu</div>
-          <p class="case-desc">KOSGEB + TİM teşvikleri birleştirilerek bir makine firması için 1.2M TL hibe ve destek sağlandı.</p>
+          <p class="case-desc">KOSGEB + TİM teşvikleri birleştirilerek makine firması için 1.2M TL destek sağlandı.</p>
         </div>
       </div>
       <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#1a1000,#302000);">📦</div></div>
+        <div class="case-img" style="background:linear-gradient(135deg,#1a1000,#302000);">🚀</div>
         <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">%75 Lojistik Tasarrufu</span>
-            <span class="case-metric">%88 Teslimat Hızı</span>
-          </div>
-          <div class="case-name">Operasyon Dönüşümü</div>
-          <p class="case-desc">Tedarik zinciri yeniden tasarlandı. Teslimat süresi 21 günden 8 güne indi, maliyet %30 azaldı.</p>
-        </div>
-      </div>
-      <div class="case-card">
-        <div class="case-img"><div class="case-img-placeholder" style="background:linear-gradient(135deg,#0a001a,#1a0030);">🚀</div></div>
-        <div class="case-body">
-          <div class="case-metrics">
-            <span class="case-metric">%70 Marka Bilinirliği</span>
-            <span class="case-metric">%75 Lead Artışı</span>
-          </div>
+          <div class="case-metrics"><span class="case-metric">5x Lead Artışı</span><span class="case-metric">5 Ülke</span></div>
           <div class="case-name">Avrupa Pazar Girişi</div>
-          <p class="case-desc">Almanya ve Hollanda'da dijital pazarlama ve fuarcılık stratejisiyle B2B lead hacmi 5x arttı.</p>
+          <p class="case-desc">Almanya ve Hollanda'da B2B dijital strateji ile lead hacmi 5x arttı.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── COMPARISON ─── -->
-<section class="section" style="background:var(--card);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);">
-  <div class="container">
-    <div class="reveal" style="text-align:center;margin-bottom:0;">
-      <div class="section-label" style="justify-content:center;">Neden Öne Çıkıyoruz</div>
-      <h2 class="section-h2">İhracatın Medyası nasıl<br />daha fazla değer sunar.</h2>
-      <p style="color:var(--muted);font-size:15px;margin-top:12px;">Tipik danışmanlık firmalarına kıyasla nasıl farklılaştığımızı inceleyin.</p>
-    </div>
-    <div class="compare-grid reveal">
-      <div class="compare-col theirs">
-        <div class="compare-head">
-          <span style="color:rgba(255,80,80,0.7);">✗</span> Diğer Danışmanlar
+      <div class="case-card">
+        <div class="case-img" style="background:linear-gradient(135deg,#0a001a,#1a0030);">📦</div>
+        <div class="case-body">
+          <div class="case-metrics"><span class="case-metric">%75 Maliyet Azalması</span><span class="case-metric">8 Gün</span></div>
+          <div class="case-name">Operasyon Dönüşümü</div>
+          <p class="case-desc">Tedarik zinciri yeniden tasarlandı, teslimat süresi 21 günden 8 güne indi.</p>
         </div>
-        <div class="compare-item"><span class="ci-x">✗</span> Herkese aynı strateji, jenerik çözümler</div>
-        <div class="compare-item"><span class="ci-x">✗</span> Sahte metrikler — görünür sonuç yok</div>
-        <div class="compare-item"><span class="ci-x">✗</span> Yavaş yanıt, zayıf iletişim</div>
-        <div class="compare-item"><span class="ci-x">✗</span> Proje sonrası destek yok</div>
-        <div class="compare-item"><span class="ci-x">✗</span> Teşviklerden habersiz, güncel değil</div>
-      </div>
-      <div class="compare-col ours">
-        <div class="compare-head ours-head">
-          <span>✓</span> İhracatın Medyası
-        </div>
-        <div class="compare-item ours-item"><span class="ci-check">✓</span> İşinize özel, veriye dayalı strateji</div>
-        <div class="compare-item ours-item"><span class="ci-check">✓</span> Net KPI'lar: ihracat hacmi, lead, gelir</div>
-        <div class="compare-item ours-item"><span class="ci-check">✓</span> Şeffaf iletişim, haftalık raporlama</div>
-        <div class="compare-item ours-item"><span class="ci-check">✓</span> Uzun vadeli ortaklık ve sürekli optimizasyon</div>
-        <div class="compare-item ours-item"><span class="ci-check">✓</span> Güncel teşvik ve hibe optimizasyonu</div>
       </div>
     </div>
   </div>
@@ -1178,12 +940,11 @@
 <section class="section" id="takim">
   <div class="container">
     <div class="reveal" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">Ekibimiz</div>
-      <h2 class="section-h2">Arkamızdaki<br /><span style="color:var(--green);">güçlü ekip.</span></h2>
-      <p style="color:var(--muted);font-size:15px;margin-top:12px;max-width:460px;margin-left:auto;margin-right:auto;">İhracat, strateji ve pazarlamada uzman; alanında kanıtlanmış profesyonellerden oluşan ekibimizle tanışın.</p>
+      <div class="section-label section-label-center">Ekibimiz</div>
+      <h2 class="section-h2">Dış Ticaret Departmanınızın<br />Arkasındaki Ekip.</h2>
+      <p class="section-sub" style="margin:12px auto 0;">İhracat, strateji ve pazarlamada kanıtlanmış uzmanlardan oluşan ekibimizle tanışın.</p>
     </div>
     <div class="team-grid reveal">
-
       <div class="team-card">
         <div class="team-photo-wrap">
           <img class="team-photo" src="team/4.jpg" alt="Kerem Sedef" />
@@ -1191,10 +952,9 @@
         <div class="team-info">
           <div class="team-name">Kerem Sedef</div>
           <div class="team-role">Teşvik & Finans Uzmanı · Operasyon Müdürü</div>
-          <p class="team-bio">KOSGEB, TİM ve devlet teşviklerinde %91 onay oranı.</p>
+          <p class="team-bio">KOSGEB, TİM ve devlet teşviklerinde %91 onay oranı. İhracat finansmanı ve operasyon yönetiminde uzman.</p>
         </div>
       </div>
-
       <div class="team-card">
         <div class="team-photo-wrap">
           <img class="team-photo" src="team/3.jpg" alt="İncilay Doğan" />
@@ -1202,10 +962,9 @@
         <div class="team-info">
           <div class="team-name">İncilay Doğan</div>
           <div class="team-role">Operasyon Danışmanı</div>
-          <p class="team-bio">Tedarik zinciri ve uluslararası lojistik yönetiminde uzman.</p>
+          <p class="team-bio">Tedarik zinciri ve uluslararası lojistik yönetiminde uzman. Operasyonel verimliliği artırıyor.</p>
         </div>
       </div>
-
       <div class="team-card">
         <div class="team-photo-wrap">
           <img class="team-photo" src="team/1.jpg" alt="Umut Yeşilyayla" />
@@ -1213,10 +972,9 @@
         <div class="team-info">
           <div class="team-name">Umut Yeşilyayla</div>
           <div class="team-role">İhracat Stratejisti</div>
-          <p class="team-bio">Uluslararası pazar geliştirme ve ihracat danışmanlığında uzman.</p>
+          <p class="team-bio">Uluslararası pazar geliştirme ve ihracat danışmanlığında 10+ yıl deneyim.</p>
         </div>
       </div>
-
       <div class="team-card">
         <div class="team-photo-wrap">
           <img class="team-photo" src="team/2.jpg" alt="Lütfullah Doğan" />
@@ -1224,20 +982,19 @@
         <div class="team-info">
           <div class="team-name">Lütfullah Doğan</div>
           <div class="team-role">Pazarlama Direktörü</div>
-          <p class="team-bio">Uluslararası marka konumlandırma ve dijital büyüme stratejistliği.</p>
+          <p class="team-bio">Uluslararası marka konumlandırma ve dijital büyüme stratejistliği. Global pazarlarda Türk markalarını büyütüyor.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ─── TESTIMONIALS ─── -->
-<section class="section" id="referanslar">
+<section class="section section-alt">
   <div class="container">
     <div class="reveal" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">Müşterilerimiz Ne Diyor</div>
-      <h2 class="section-h2">Mükemmelliğe olan<br />bağlılığımızı yansıtıyor.</h2>
+      <div class="section-label section-label-center">Müşterilerimiz</div>
+      <h2 class="section-h2">Sonuçlar Konuşuyor.</h2>
     </div>
     <div class="testi-grid reveal">
       <div class="testi-card">
@@ -1245,10 +1002,7 @@
         <p class="testi-text">"Körfez pazarına girerken aklımızda çok soru vardı. İhracatın Medyası hem strateji hem alıcı bağlantısı konusunda tam anlamıyla rehberimiz oldu. 14 ayda ciromuzu ikiye katladık."</p>
         <div class="testi-author">
           <div class="testi-avatar">👨‍💼</div>
-          <div>
-            <div class="testi-name">Mehmet Yılmaz</div>
-            <div class="testi-role">CEO, Yılmaz Tekstil</div>
-          </div>
+          <div><div class="testi-name">Mehmet Yılmaz</div><div class="testi-role-text">CEO, Yılmaz Tekstil</div></div>
         </div>
       </div>
       <div class="testi-card">
@@ -1256,21 +1010,15 @@
         <p class="testi-text">"Teşvik süreçleri çok karmaşıktı, nereden başlayacağımızı bilmiyorduk. Ekip bizi adım adım yönlendirdi ve 8 ayda 900.000 TL hibe sağladık. İnanılmaz bir profesyonellik."</p>
         <div class="testi-author">
           <div class="testi-avatar">👩‍💼</div>
-          <div>
-            <div class="testi-name">Ayşe Kaya</div>
-            <div class="testi-role">Genel Müdür, KayaMakine</div>
-          </div>
+          <div><div class="testi-name">Ayşe Kaya</div><div class="testi-role-text">Genel Müdür, KayaMakine</div></div>
         </div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Operasyon danışmanlığında beklentimizin çok üzerinde bir hizmet aldık. Teslimat sürelerimiz yarıya indi, müşteri memnuniyetimiz zirveye çıktı. Kesinlikle tavsiye ediyorum."</p>
+        <p class="testi-text">"Operasyon danışmanlığında beklentimizin çok üzerinde hizmet aldık. Teslimat sürelerimiz yarıya indi, müşteri memnuniyetimiz zirveye çıktı."</p>
         <div class="testi-author">
           <div class="testi-avatar">🧑‍💼</div>
-          <div>
-            <div class="testi-name">Ali Demir</div>
-            <div class="testi-role">Kurucu, Demir Lojistik</div>
-          </div>
+          <div><div class="testi-name">Ali Demir</div><div class="testi-role-text">Kurucu, Demir Lojistik</div></div>
         </div>
       </div>
       <div class="testi-card">
@@ -1278,21 +1026,15 @@
         <p class="testi-text">"Avrupa pazarına girerken dijital stratejimizi sıfırdan kurdular. 6 ayda 5 farklı ülkeden talep almaya başladık. Gerçek anlamda büyüme ortağı oldular."</p>
         <div class="testi-author">
           <div class="testi-avatar">👨‍🏭</div>
-          <div>
-            <div class="testi-name">Emre Çelik</div>
-            <div class="testi-role">İhracat Direktörü, ÇelikGıda</div>
-          </div>
+          <div><div class="testi-name">Emre Çelik</div><div class="testi-role-text">İhracat Direktörü, ÇelikGıda</div></div>
         </div>
       </div>
       <div class="testi-card">
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"İK danışmanlığında uluslararası operasyon için doğru ekibi bulmamıza yardımcı oldular. Artık 3 farklı ülkede yerel ekiplerimiz var. Süreç çok akıcıydı."</p>
+        <p class="testi-text">"AI destekli müşteri bulma sistemiyle 3 ayda 40'tan fazla nitelikli alıcıyla görüştük. Kendi başımıza bunu yapmak 2 yıl alırdı."</p>
         <div class="testi-author">
           <div class="testi-avatar">👩‍🔬</div>
-          <div>
-            <div class="testi-name">Selin Arslan</div>
-            <div class="testi-role">COO, ArslanTech</div>
-          </div>
+          <div><div class="testi-name">Selin Arslan</div><div class="testi-role-text">COO, ArslanTech</div></div>
         </div>
       </div>
       <div class="testi-card">
@@ -1300,78 +1042,8 @@
         <p class="testi-text">"Rakip analizinden fiyatlama stratejisine kadar her konuda bize özel çözümler ürettiler. Pazarda ne yapacağımızı net bir şekilde görmeye başladık."</p>
         <div class="testi-author">
           <div class="testi-avatar">🧔</div>
-          <div>
-            <div class="testi-name">Hasan Öztürk</div>
-            <div class="testi-role">Satış Direktörü, Öztürk Metal</div>
-          </div>
+          <div><div class="testi-name">Hasan Öztürk</div><div class="testi-role-text">Satış Direktörü, Öztürk Metal</div></div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── BÜLTENler ─── -->
-<section class="section" id="bultenler" style="background:var(--card);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);">
-  <div class="container">
-    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:0;">
-      <div>
-        <div class="section-label">Bültenler</div>
-        <h2 class="section-h2">Sektörün nabzını<br />tutun.</h2>
-      </div>
-      <a href="#bultenler" class="btn-glass" style="font-size:14px;padding:11px 24px;">Tüm Bültenleri Gör →</a>
-    </div>
-    <div class="bulten-grid reveal">
-      <div class="bulten-card">
-        <div class="bulten-img">🌏</div>
-        <div class="bulten-body">
-          <div class="bulten-cat">İhracat Raporu</div>
-          <div class="bulten-title">2025 Körfez Pazarı: Türk Firmaları İçin Fırsatlar ve Riskler</div>
-          <p class="bulten-excerpt">BAE, Suudi Arabistan ve Katar'da Türk markalarına yönelik talep analizi ve giriş stratejileri.</p>
-          <div class="bulten-footer">
-            <span class="bulten-date">Mayıs 2025</span>
-            <span class="bulten-read">Okumaya Devam Et →</span>
-          </div>
-        </div>
-      </div>
-      <div class="bulten-card">
-        <div class="bulten-img">💶</div>
-        <div class="bulten-body">
-          <div class="bulten-cat">Teşvik Rehberi</div>
-          <div class="bulten-title">2025 KOSGEB & TİM Teşvik Paketi: Kim Başvurabilir, Nasıl?</div>
-          <p class="bulten-excerpt">Güncel teşvik kalemleri, başvuru kriterleri ve sıkça yapılan hatalar. Adım adım kılavuz.</p>
-          <div class="bulten-footer">
-            <span class="bulten-date">Nisan 2025</span>
-            <span class="bulten-read">Okumaya Devam Et →</span>
-          </div>
-        </div>
-      </div>
-      <div class="bulten-card">
-        <div class="bulten-img">📦</div>
-        <div class="bulten-body">
-          <div class="bulten-cat">Operasyon</div>
-          <div class="bulten-title">Uluslararası Lojistikte Maliyet Yönetimi: 7 Kritik Nokta</div>
-          <p class="bulten-excerpt">Nakliye, sigorta ve gümrük maliyetlerini optimize ederek kâr marjınızı nasıl korursunuz?</p>
-          <div class="bulten-footer">
-            <span class="bulten-date">Mart 2025</span>
-            <span class="bulten-read">Okumaya Devam Et →</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Newsletter -->
-    <div class="newsletter-box reveal">
-      <div>
-        <div class="section-label">Bültene Abone Ol</div>
-        <div class="nl-title">Her hafta kutunuza<br />gelsin.</div>
-        <p class="nl-sub" style="margin-top:10px;">İhracat trendleri, teşvik haberleri ve pazar analizleri. 4.200+ ihracatçı okuyor.</p>
-      </div>
-      <div>
-        <div class="nl-form">
-          <input class="nl-input" type="email" placeholder="E-posta adresiniz" />
-          <button class="btn-green">Abone Ol</button>
-        </div>
-        <p style="font-size:12px;color:var(--dim);margin-top:12px;">Spam yok. İstediğiniz zaman iptal edebilirsiniz.</p>
       </div>
     </div>
   </div>
@@ -1381,63 +1053,151 @@
 <section class="section" id="sss">
   <div class="container">
     <div class="reveal" style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">Sıkça Sorulan Sorular</div>
-      <h2 class="section-h2">Sorularınız,<br />yanıtlandı.</h2>
-      <p style="color:var(--muted);font-size:15px;margin-top:12px;">Hizmetlerimiz, sürecimiz ve nasıl başlayacağınız hakkında hızlı yanıtlar.</p>
+      <div class="section-label section-label-center">Sıkça Sorulan Sorular</div>
+      <h2 class="section-h2">Aklınızdaki Soruların<br />Yanıtları Burada.</h2>
     </div>
     <div class="faq-list reveal">
+
       <div class="faq-item open">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>İhracat danışmanlığı yaklaşımınız rakiplerden nasıl ayrılıyor?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Her müşteri için özelleştirilmiş bir strateji oluşturuyoruz. Genel tavsiyeler yerine sektörünüze, ürününüze ve hedef pazarınıza göre tasarlanmış, ölçülebilir KPI'larla desteklenen eylem planları sunuyoruz.</div>
+        <div class="faq-q" onclick="toggleFaq(this)"><span>İhracat yapmak için ne kadar hazırlık süresi gerekir?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Şirketinizin mevcut durumuna göre değişmekle birlikte, ilk ihracat görüşmesine kadar geçen süre ortalama 30-60 gündür. CRM kurulumu, pazar araştırması ve ilk outreach kampanyası bu süre içinde tamamlanır. İlk sipariş alım süreleri sektöre göre 3-6 ay arasında değişmektedir.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Hangi ülkelere ihracat konusunda deneyiminiz var?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Körfez ülkeleri (BAE, Suudi Arabistan, Katar, Kuveyt), Avrupa (Almanya, Hollanda, İngiltere, Fransa, İtalya), Kuzey Afrika, Orta Asya ve Uzak Doğu dahil 48 ülkede aktif alıcı ve distribütör ağımız bulunmaktadır.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Küçük firmalar için de hizmet veriyor musunuz?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Evet. KOBİ'lerden büyük ölçekli üreticilere kadar her ölçekteki firma ile çalışıyoruz. Özellikle kendi ihracat departmanını kurma kapasitesi olmayan KOBİ'ler için departman modeli büyük avantaj sağlar.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>İlk 3 ayda ne tür sonuçlar bekleyebilirim?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">İlk 30 günde: pazar analizi, ICP (ideal müşteri profili) ve CRM kurulumu tamamlanır. 30-60. günlerde: ilk outreach kampanyaları başlar, nitelikli alıcı görüşmeleri yapılır. 60-90. günlerde: teklif süreçleri ve ilk sipariş müzakereleri yürütülür.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Teşvik başvurularında başarı oranınız nedir?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Bugüne kadar yönettiğimiz teşvik başvurularında %91 onay oranına ulaştık. Bunu doğru belgeleme, mevzuat takibi ve güçlü bir ön hazırlık süreciyle başarıyoruz. KOSGEB, TİM, Eximbank ve Ticaret Bakanlığı desteklerinde aktif deneyimimiz vardır.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Distribütör bulmak ne kadar sürer?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Hedef ülke ve sektöre göre değişmekle birlikte, ortalama 2-4 ay içinde ilk nitelikli distribütör görüşmelerini gerçekleştiriyoruz. AI destekli araçlarımız sayesinde bu süreci geleneksel yöntemlere göre 3-4 kat hızlandırıyoruz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Fiyatlandırma nasıl yapılıyor?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Fiyatlandırma; ihtiyaç duyulan hizmet kapsamına, sektöre ve hedef pazara göre özelleştirilmektedir. Sabit aylık retainer modeli, proje bazlı model veya performans bazlı model seçeneklerimiz mevcuttur. Ücretsiz analiz görüşmesinde size en uygun modeli birlikte belirleriz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Minimum anlaşma süresi ne kadar?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Minimum anlaşma süresi 6 aydır. İhracat departmanı kurulumu, sistem entegrasyonu ve ilk müşteri görüşmelerinin tamamlanması için bu süre gereklidir. 12 aylık anlaşmalarda özel fiyatlandırma avantajı sunmaktayız.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Kendi ihracat departmanımı kurmaktan farkı ne?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Kendi departmanınızı kurduğunuzda personel maliyeti, işe alım süresi, eğitim, sistem kurulumu ve öğrenme eğrisi ile karşılaşırsınız. Bu süreç en az 2-3 yıl alır ve yüksek maliyetlidir. Bizimle çalıştığınızda tüm bunlar 30 günde hazır olur, maliyetin çok daha azına.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Hangi sektörlerde uzmanlığınız var?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Mobilya, gıda, tekstil, makine, medikal, dental, kimya, teknoloji ve inşaat sektörlerinde aktif deneyimimiz bulunmaktadır. Her sektör için ihracat dinamikleri, alıcı profilleri ve gümrük mevzuatı özelinde uzmanlaşmış ekip üyelerimiz mevcuttur.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>CRM kurulumu ve eğitimi sağlıyor musunuz?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Evet. İhracat süreçlerine özel CRM kurulumu, veri aktarımı, pipeline tasarımı ve ekip eğitimini eksiksiz sunuyoruz. Sistemi kuruyoruz, yönetiyoruz ve sonuçlarını birlikte izliyoruz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Eximbank kredisi için şartlar neler?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Eximbank kredileri ihracatçı firmalara özel düşük faizli finansman imkânı sunar. Temel şartlar; Türkiye'de kayıtlı ihracatçı firma olmak, aktif ihracat geçmişi ve belirli ciro kriterlerini sağlamaktır. Size özel uygunluk analizi için ücretsiz görüşme talep edebilirsiniz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Dil bariyerini nasıl aşıyorsunuz?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">İngilizce, Arapça ve diğer dillerde iletişim kapasitemiz mevcuttur. Alıcı iletişimini, teklif hazırlamayı ve görüşme yönetimini sizin adınıza yürütebiliyoruz. Yerel dil gerektiren pazarlarda yerli partner ağımızı devreye sokuyoruz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Alıcı ve distribütör arasındaki fark nedir?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Alıcı doğrudan ürününüzü satın alan firmadır. Distribütör ise ülke içinde ürünü dağıtarak çok sayıda son müşteriye ulaşmanızı sağlar. Sektörünüze ve stratejinize göre hangisinin önceliklendirilmesi gerektiğini analiz ederek belirliyoruz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Yurt dışında şirket kuruluşuna yardım ediyor musunuz?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Evet. Hedef pazarda yasal yapılanma, şube veya temsilcilik kurulumu, yerel banka hesabı açılışı ve muhasebe düzenlemelerinde destek sağlıyoruz. Yerel hukuk ortaklarımız aracılığıyla süreci yönetiyoruz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>AI müşteri bulma sistemi nasıl çalışıyor?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Ürününüze, sektörünüze ve hedef pazara göre ideal alıcı profilini tanımlıyoruz. Yapay zeka araçlarıyla milyonlarca firma verisi taranarak nitelikli alıcılar tespit ediliyor. Ardından kişiselleştirilmiş outreach kampanyaları başlatılarak görüşme randevuları oluşturuluyor.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Lojistik yönetimini tamamen siz mi üstleniyorsunuz?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Evet. Taşıyıcı seçimi, fiyat müzakeresi, sigorta, gümrük belgeleri ve teslimat takibini yönetiyoruz. Lojistik süreçlerini sizin adınıza koordine ederek hem maliyet hem zaman tasarrufu sağlıyoruz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Devlet teşviklerini nasıl takip ediyorsunuz?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Ticaret Bakanlığı, KOSGEB, TİM ve diğer kurumların güncel teşvik duyurularını sürekli takip eden uzman ekibimiz bulunmaktadır. Müşterilerimize özel fırsatları proaktif olarak bildiriyor ve başvuru süreçlerini yönetiyoruz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Referans müşterilerinizi görebilir miyim?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Gizlilik anlaşmaları kapsamında müşteri bilgilerini kamuoyuyla paylaşmıyoruz. Ancak ücretsiz görüşme sırasında sektörünüze yakın vaka çalışmalarını ve elde edilen sonuçları anonimize edilmiş haliyle paylaşabiliriz.</div></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Nasıl başlayabilirim?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Aşağıdaki butonlardan ücretsiz 30 dakikalık ihracat analizi görüşmesi talep etmeniz yeterli. Bu görüşmede ihracat hazırlık skorunuzu çıkarıyor, öncelikli fırsatları belirliyoruz ve en uygun çalışma modelini öneriyoruz. Hiçbir taahhüt gerektirmez.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── BLOG ─── -->
+<section class="section section-alt" id="blog">
+  <div class="container">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;">
+      <div>
+        <div class="section-label">Blog</div>
+        <h2 class="section-h2">İhracat Dünyasından<br />Güncel İçerikler.</h2>
+      </div>
+      <a href="#blog" class="btn-glass" style="font-size:14px;padding:11px 22px;">Tüm Yazılar →</a>
+    </div>
+    <div class="blog-grid reveal">
+      <div class="blog-card">
+        <div class="blog-img">🌍</div>
+        <div class="blog-body">
+          <div class="blog-cat">İhracat Stratejisi</div>
+          <div class="blog-title">2025'te Körfez Pazarı: Türk Firmaları İçin En Büyük Fırsatlar</div>
+          <p class="blog-excerpt">BAE, Suudi Arabistan ve Katar'da Türk markalarına yönelik talep analizi ve giriş stratejileri.</p>
+          <div class="blog-footer"><span class="blog-date">Mayıs 2025</span><span class="blog-read">Okumaya Devam Et →</span></div>
         </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Teşvik başvurularında başarı oranınız nedir?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Bugüne kadar yönettiğimiz 320+ projede teşvik başvurularında %91 onay oranına ulaştık. Bunu, doğru belgeleme, mevzuat takibi ve güçlü bir ön hazırlık süreciyle sağlıyoruz.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Kampanya ve proje başarısını nasıl ölçüyorsunuz?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Proje başında net KPI'lar belirliyoruz: ihracat hacmi, yeni pazar sayısı, lead sayısı, teşvik miktarı. Haftalık raporlama ve aylık değerlendirme toplantılarıyla süreci şeffaf tutuyoruz.</div>
+      <div class="blog-card">
+        <div class="blog-img">💶</div>
+        <div class="blog-body">
+          <div class="blog-cat">Devlet Teşvikleri</div>
+          <div class="blog-title">2025 KOSGEB & TİM Teşvik Rehberi: Kim Başvurabilir, Nasıl?</div>
+          <p class="blog-excerpt">Güncel teşvik kalemleri, başvuru kriterleri ve sıkça yapılan hatalar. Adım adım kılavuz.</p>
+          <div class="blog-footer"><span class="blog-date">Nisan 2025</span><span class="blog-read">Okumaya Devam Et →</span></div>
         </div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Hizmetlerinize bugün nasıl başlayabilirim?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Ücretsiz 30 dakikalık keşif görüşmesi talep etmeniz yeterli. Bu görüşmede ihracat hazırlık skorunuzu çıkarıyor, öncelikli fırsatları belirliyor ve size en uygun hizmet paketini öneriyoruz.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Hangi sektörlere uzmanlık sunuyorsunuz?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Tekstil, makine, gıda, savunma sanayii, teknoloji ve sağlık başta olmak üzere 12 sektörde aktif uzmanlığımız bulunuyor. Her sektör için özelleştirilmiş pazar rehberlerimiz mevcuttur.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          <span>Farklı sektörlere özel çözümler sunuyor musunuz?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-a">
-          <div class="faq-a-inner">Evet. Her sektörün ihracat dinamikleri, gümrük mevzuatı ve alıcı profili farklıdır. Bu nedenle her müşteri için sektöre özel analiz ve strateji geliştiriyoruz.</div>
+      <div class="blog-card">
+        <div class="blog-img">🤖</div>
+        <div class="blog-body">
+          <div class="blog-cat">Yapay Zeka & İhracat</div>
+          <div class="blog-title">AI ile Yurt Dışı Müşteri Bulmak: Geleneksel Yöntemleri Geride Bıraktık</div>
+          <p class="blog-excerpt">Yapay zeka destekli lead generation ile 3 ayda 40 nitelikli alıcı görüşmesi nasıl gerçekleştirilir?</p>
+          <div class="blog-footer"><span class="blog-date">Mart 2025</span><span class="blog-read">Okumaya Devam Et →</span></div>
         </div>
       </div>
     </div>
@@ -1445,15 +1205,15 @@
 </section>
 
 <!-- ─── CTA ─── -->
-<section class="section cta-section" id="iletisim">
+<section class="section" id="iletisim">
   <div class="container">
     <div class="cta-box reveal">
-      <div class="section-label" style="justify-content:center;">Harekete Geçin</div>
-      <h2 class="cta-title">Küresel pazara<br /><span style="color:var(--green);">hazır mısınız?</span></h2>
+      <div class="section-label section-label-center">Harekete Geçin</div>
+      <h2 class="cta-title">İhracat Departmanınız<br /><span style="color:var(--green);">30 Günde Hazır.</span></h2>
       <p class="cta-sub">İlk görüşme tamamen ücretsiz. 30 dakikada ihracat hazırlık skorunuzu çıkarıyoruz.</p>
       <div class="cta-btns">
-        <a href="mailto:warecomagency@gmail.com" class="btn-green btn-magnetic">Ücretsiz Görüşme Talep Et</a>
-        <a href="#hizmetler" class="btn-glass btn-magnetic">Hizmetleri İncele</a>
+        <a href="mailto:warecomagency@gmail.com" class="btn-green btn-magnetic">Ücretsiz İhracat Analizi Al</a>
+        <a href="mailto:warecomagency@gmail.com" class="btn-glass btn-magnetic">30 Dk. Strateji Görüşmesi</a>
       </div>
     </div>
   </div>
@@ -1465,37 +1225,37 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-brand-name">
-          <div class="nav-logo-dot" style="width:7px;height:7px;"></div>
+          <div class="nav-dot" style="width:7px;height:7px;"></div>
           İhracatın Medyası
         </div>
-        <p>Türkiye'nin ihracat ekosisteminde strateji, medya ve danışmanlık platformu.</p>
+        <p>Türkiye'den dünyaya açılmak isteyen firmaların dış ticaret departmanı.</p>
       </div>
       <div class="footer-col">
         <h4>Hizmetler</h4>
         <ul>
-          <li><a href="#hizmetler">Marketing</a></li>
-          <li><a href="#hizmetler">Operasyon</a></li>
-          <li><a href="#hizmetler">İhracat & İthalat</a></li>
-          <li><a href="#hizmetler">Teşvik</a></li>
-          <li><a href="#hizmetler">İnsan Kaynakları</a></li>
+          <li><a href="#hizmetler">İhracat Stratejisi</a></li>
+          <li><a href="#hizmetler">Global Pazarlama</a></li>
+          <li><a href="#hizmetler">AI ile Müşteri Bulma</a></li>
+          <li><a href="#hizmetler">Teşvik Danışmanlığı</a></li>
+          <li><a href="#hizmetler">Lojistik Yönetimi</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>İçerik</h4>
+        <h4>Şirket</h4>
         <ul>
-          <li><a href="#bultenler">Bültenler</a></li>
-          <li><a href="#manifesto">Hakkımızda</a></li>
-          <li><a href="#projeler">Çalışmalar</a></li>
+          <li><a href="#takim">Ekibimiz</a></li>
+          <li><a href="#projeler">Başarı Hikayeleri</a></li>
           <li><a href="#sss">SSS</a></li>
           <li><a href="#blog">Blog</a></li>
+          <li><a href="#sistem">Export OS</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>İletişim</h4>
         <ul>
           <li><a href="mailto:warecomagency@gmail.com">warecomagency@gmail.com</a></li>
-          <li><a href="#iletisim">Ücretsiz Danışmanlık</a></li>
-          <li><a href="#bultenler">Bültene Abone Ol</a></li>
+          <li><a href="#iletisim">Ücretsiz Analiz</a></li>
+          <li><a href="#iletisim">Strateji Görüşmesi</a></li>
         </ul>
       </div>
     </div>
@@ -1512,12 +1272,7 @@
 </footer>
 
 <script>
-  // ─── Mobile nav ───
-  function toggleMob() {
-    document.getElementById('mobNav').classList.toggle('open');
-  }
-
-  // ─── FAQ accordion ───
+  function toggleMob() { document.getElementById('mobNav').classList.toggle('open'); }
   function toggleFaq(el) {
     const item = el.closest('.faq-item');
     const isOpen = item.classList.contains('open');
@@ -1525,44 +1280,38 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // ─── Refs ───
-  const nav = document.querySelector('nav');
+  const nav = document.getElementById('mainNav');
   const progressFill = document.querySelector('.scroll-progress-fill');
   const scrollTopBtn = document.getElementById('scrollTop');
 
-  // ─── Scroll events ───
   window.addEventListener('scroll', () => {
     const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
     if (progressFill) progressFill.style.width = pct + '%';
-    nav.style.borderBottomColor = window.scrollY > 40 ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.06)';
+    nav.style.borderBottomColor = window.scrollY > 40 ? 'rgba(255,255,255,.1)' : 'rgba(255,255,255,.07)';
     if (scrollTopBtn) scrollTopBtn.classList.toggle('show', window.scrollY > 500);
   });
 
-  // ─── Scroll to top ───
   if (scrollTopBtn) scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // ─── Scroll reveal ───
-  const ro = new IntersectionObserver((entries) => {
+  const ro = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => ro.observe(el));
 
-  // ─── Count-up animation ───
   function countUp(el) {
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
     const prefix = el.dataset.prefix || '';
-    const isFloat = String(el.dataset.count).includes('.');
     const duration = 1800;
     const start = performance.now();
     (function tick(now) {
       const p = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = prefix + (isFloat ? (eased * target).toFixed(1) : Math.floor(eased * target)) + suffix;
+      el.textContent = prefix + Math.floor(eased * target) + suffix;
       if (p < 1) requestAnimationFrame(tick);
     })(start);
   }
-  const countObs = new IntersectionObserver((entries) => {
+  const countObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting && !e.target.dataset.counted) {
         e.target.dataset.counted = '1';
@@ -1572,27 +1321,18 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
 
-  // ─── Typewriter ───
   const twEl = document.querySelector('.typewriter-target');
   if (twEl) {
-    const fullText = twEl.textContent.trim();
+    const text = twEl.textContent.trim();
     twEl.innerHTML = '';
     const cursor = Object.assign(document.createElement('span'), { className: 'tw-cursor' });
     twEl.appendChild(cursor);
     let i = 0;
-    const type = () => {
-      if (i < fullText.length) {
-        twEl.insertBefore(document.createTextNode(fullText[i++]), cursor);
-        setTimeout(type, 22);
-      } else {
-        setTimeout(() => cursor.remove(), 1400);
-      }
-    };
-    setTimeout(type, 700);
+    const type = () => { if (i < text.length) { twEl.insertBefore(document.createTextNode(text[i++]), cursor); setTimeout(type, 22); } else { setTimeout(() => cursor.remove(), 1400); } };
+    setTimeout(type, 800);
   }
 
-  // ─── Spotlight card effect ───
-  document.querySelectorAll('.svc-card, .testi-card, .team-card, .bulten-card').forEach(card => {
+  document.querySelectorAll('.svc-card, .testi-card, .team-card, .blog-card, .why-card, .problem-card').forEach(card => {
     card.classList.add('spotlight-card');
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
@@ -1601,29 +1341,21 @@
     });
   });
 
-  // ─── Magnetic buttons ───
   document.querySelectorAll('.btn-magnetic').forEach(btn => {
     btn.addEventListener('mousemove', e => {
       const r = btn.getBoundingClientRect();
-      const x = (e.clientX - r.left - r.width / 2) * 0.22;
-      const y = (e.clientY - r.top - r.height / 2) * 0.22;
-      btn.style.transform = `translate(${x}px, ${y}px)`;
+      btn.style.transform = `translate(${(e.clientX - r.left - r.width/2) * .22}px, ${(e.clientY - r.top - r.height/2) * .22}px)`;
     });
     btn.addEventListener('mouseleave', () => btn.style.transform = '');
   });
 
-  // ─── Stagger grid cards ───
-  ['svc-card','testi-card','bulten-card','team-card'].forEach(cls => {
-    document.querySelectorAll('.' + cls).forEach((el, i) => {
-      el.style.transitionDelay = (i % 4) * 80 + 'ms';
-    });
+  ['svc-card','testi-card','blog-card','team-card','why-card'].forEach(cls => {
+    document.querySelectorAll('.' + cls).forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + 'ms'; });
   });
 
-  // ─── Close mob nav on outside click ───
   document.addEventListener('click', e => {
     const mob = document.getElementById('mobNav');
-    if (mob.classList.contains('open') && !mob.contains(e.target) && !e.target.closest('.hamburger'))
-      mob.classList.remove('open');
+    if (mob.classList.contains('open') && !mob.contains(e.target) && !e.target.closest('.hamburger')) mob.classList.remove('open');
   });
 </script>
 </body>
